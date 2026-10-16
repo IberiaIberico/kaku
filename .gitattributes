@@ -1,0 +1,18 @@
+# Text files: stored with LF in the repository, checked out with the platform's line endings
+* text=auto
+
+# Windows project files keep CRLF everywhere
+*.sln     text eol=crlf
+*.slnx    text eol=crlf
+*.csproj  text eol=crlf
+*.props   text eol=crlf
+
+# The Hunspell dictionary is embedded byte for byte: never convert it
+*.dic -text
+*.aff -text
+
+# Binary files
+*.png binary
+*.ico binary
+*.jpg binary
+*.epub binary

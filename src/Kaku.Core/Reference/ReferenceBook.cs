@@ -91,6 +91,7 @@ public sealed class ReferenceBook
         var images = book.Package.Entries.Where(e => EpubPath.Extension(e.Path) is ".jpg" or ".jpeg" or ".png" or ".gif" or ".webp")
             .Select(e => (e.Path, (long)e.Data.Length)).ToHashSet();
         var self = System.IO.Path.GetFullPath(book.FilePath);
+        var myLang = book.Opf.Language;
         var result = new List<ReferenceCandidate>();
         foreach (var folder in folders.Where(Directory.Exists).Distinct(StringComparer.OrdinalIgnoreCase))
         {
@@ -107,7 +108,9 @@ public sealed class ReferenceBook
                     int sameImages = zip.Entries.Count(e => images.Contains((e.FullName, e.Length)));
                     double score = (double)common / Math.Max(mine.Count, 1)
                                    + 2.0 * sameImages / Math.Max(images.Count, 1);
-                    if (lang.StartsWith("ja", StringComparison.OrdinalIgnoreCase)) score += 0.5; // the original language
+                    // another copy in the book's own language is a translation, not the original
+                    if (lang.Length >= 2 && myLang.Length >= 2 && string.Equals(lang[..2], myLang[..2], StringComparison.OrdinalIgnoreCase)) score -= 3;
+                    else if (lang.Length > 0) score += 0.5;
                     result.Add(new ReferenceCandidate(file, title, lang, score));
                 }
                 catch (Exception ex) when (ex is IOException or InvalidDataException or UnauthorizedAccessException)
@@ -115,7 +118,7 @@ public sealed class ReferenceBook
                 }
             }
         }
-        return result.OrderByDescending(c => c.Score).Take(max).ToList();
+        return result.Where(c => c.Score > 0).OrderByDescending(c => c.Score).Take(max).ToList();
     }
 
     private static (string Title, string Language) ReadMeta(ZipArchive zip)

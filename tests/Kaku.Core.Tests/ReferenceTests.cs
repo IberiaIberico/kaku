@@ -15,7 +15,9 @@ public class ReferenceTests(ITestOutputHelper output)
         foreach (var es in paths.Where(p => p.Contains(Path.DirectorySeparatorChar + "out" + Path.DirectorySeparatorChar)))
         {
             var book = Book.Load(es);
-            var best = ReferenceBook.FindCandidates(book, [jaFolder]).FirstOrDefault();
+            // search both folders: the Spanish copies must not outrank the Japanese original
+            var outFolder = Path.GetDirectoryName(es)!;
+            var best = ReferenceBook.FindCandidates(book, [jaFolder, outFolder]).FirstOrDefault();
             if (best != null && best.Score > 2.0) yield return (book, best.Path);
         }
     }

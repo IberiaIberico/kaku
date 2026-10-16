@@ -220,10 +220,37 @@ Requirements:
 - F40. Text checks: Japanese characters left, mixed quote styles, double spaces, empty paragraphs, spelling errors.
 - F41. Each problem clickable → jumps to the position.
 
-### 4.8 Original-language reference **[LATER STAGE — not in v1]**
-- F42. Link a "reference EPUB" (the Japanese original) to the book.
-- F43. Show the Japanese paragraph matching the current Spanish paragraph in the right panel (with furigana).
-  Matching by chapter + paragraph position, with manual re-alignment if the structure differs.
+### 4.8 Original-language reference **[IN PROGRESS — branch `feature/referencia-japonesa`]**
+
+**Decision: the reference is the original EPUB, not the translation cache JSON.** The cache keys are
+SHA-1 hashes of the Japanese paragraphs, so the Japanese text cannot be recovered from the JSON; the
+original EPUB is needed in any case. Measured on the test books, translations made with `translate_epub.py`
+keep the original file paths and the paragraph order: Grasshopper 14/14 and Materiales Inflamables 22/22
+files match paragraph for paragraph; Unsocial Distance 15/18 (the 3 others were edited in Kaku: split
+paragraphs, notes page). The cache can be added later as an optional extra (F42c).
+
+- F42. **Link a reference EPUB** to the book: Libro → «Original japonés…» → choose the file.
+  - F42a. Kaku suggests candidates [PROPOSED]: EPUBs in the folders of recently linked books and in a
+    configurable folder (e.g. `kobo_downloads`), ranked by how well their structure matches (same file paths,
+    similar paragraph counts).
+  - F42b. The link is stored per book outside the EPUB [PROPOSED]: `%APPDATA%\Kaku\references.json`
+    (book path → reference path), so the translated EPUB stays clean. Follows «Guardar como».
+  - F42c. *Later:* optional translation cache (`*.cache.json`) to show the machine draft next to the current
+    Spanish text (lookup by SHA-1 of the Japanese paragraph).
+- F43. **Show the Japanese paragraph** that matches the paragraph under the cursor.
+  - F43a. **Alignment**, per file (same path in both books, else by spine position): sequence alignment
+    of the two paragraph lists (like a diff), tolerant to inserted, deleted, split and merged paragraphs.
+    Cues: paragraph length ratio, empty paragraphs and images at the same place, digits, quotes/dialogue
+    marks, headings. Notes and pages added by Kaku have no counterpart.
+  - F43b. **Display** **[OPEN]**: a tab «Original» next to «Vista previa» in the right panel, showing the
+    Japanese chapter with furigana and the matching paragraph highlighted and scrolled into view; or a
+    paragraph-by-paragraph view (Japanese above/next to each Spanish paragraph).
+  - F43c. **Sync** both ways: the cursor in the editor moves the highlight in the original; clicking a
+    Japanese paragraph moves the editor to its Spanish counterpart.
+  - F43d. **Manual re-alignment**: «Este párrafo corresponde a…» to pin a pair when the automatic alignment
+    is wrong; pins are stored with the link (F42b) and re-anchor the rest of the chapter.
+  - F43e. Read-only: the Japanese book is never modified.
+  - F43f. The Japanese is shown in its own layout (vertical writing) or forced horizontal **[OPEN]**.
 - F44. Re-translate / suggest a translation for a paragraph with an LLM (LM Studio). **[LATER STAGE — not in v1]**
 
 ---
@@ -356,7 +383,7 @@ kaku/
    - epubcheck (Libro → Validar con epubcheck…): optional; needs Java (not installed on the user's PC) and
      epubcheck.jar, chosen once. Runs on a copy of the current state and adds its messages to the panel.
 
-**Later stages (after v1):** Japanese original as reference (§4.8), LLM assistance (F44).
+**Later stages (after v1):** Japanese original as reference (§4.8, in progress on `feature/referencia-japonesa`), LLM assistance (F44).
 
 ---
 

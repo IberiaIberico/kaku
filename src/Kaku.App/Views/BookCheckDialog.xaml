@@ -1,0 +1,28 @@
+<Window x:Class="Kaku.App.Views.BookCheckDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:l="clr-namespace:Kaku.App.Localization"
+        Title="{l:T Check_Title}" Width="860" Height="560" MinWidth="560" MinHeight="300"
+        ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+    <DockPanel Margin="12">
+        <TextBlock x:Name="Summary" DockPanel.Dock="Top" TextWrapping="Wrap" Margin="0,0,0,8" FontWeight="SemiBold"/>
+        <DockPanel DockPanel.Dock="Bottom" Margin="0,10,0,0">
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="DeleteUnusedButton" Padding="8,3" Margin="0,0,6,0" Click="OnDeleteUnused"/>
+                <Button x:Name="AddUnlistedButton" Padding="8,3" Margin="0,0,6,0" Click="OnAddUnlisted"/>
+                <Button x:Name="RemoveMissingButton" Padding="8,3" Click="OnRemoveMissing"/>
+            </StackPanel>
+            <Button Content="{l:T Common_Close}" MinWidth="90" Padding="10,3" HorizontalAlignment="Right" IsCancel="True" Click="OnClose"/>
+        </DockPanel>
+        <ListView x:Name="List" MouseDoubleClick="OnDoubleClick" KeyDown="OnListKeyDown">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="{l:T Check_Kind}" DisplayMemberBinding="{Binding KindText}" Width="150"/>
+                    <GridViewColumn Header="{l:T Check_Detail}" DisplayMemberBinding="{Binding Detail}" Width="330"/>
+                    <GridViewColumn Header="{l:T Check_File}" DisplayMemberBinding="{Binding Path}" Width="190"/>
+                    <GridViewColumn Header="{l:T Check_Where}" DisplayMemberBinding="{Binding WhereText}" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>

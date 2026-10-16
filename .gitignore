@@ -1,0 +1,15 @@
+# Build output
+bin/
+obj/
+publish/
+*.user
+*.suo
+.vs/
+.idea/
+TestResults/
+
+# Logo source from the drawing tool (keep only the exported PNG/SVG)
+*.vectorcraft
+
+# Books are never part of the repository
+*.epub

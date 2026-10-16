@@ -1,0 +1,39 @@
+<UserControl x:Class="Kaku.App.Views.NotesPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:l="clr-namespace:Kaku.App.Localization"
+             Background="White">
+    <DockPanel>
+        <WrapPanel DockPanel.Dock="Top" Margin="6,5,6,4">
+            <TextBox x:Name="FilterBox" Width="200" Height="24" Padding="3,2" VerticalContentAlignment="Center" TextChanged="OnFilterChanged"
+                     ToolTip="{l:T Notes_FilterTip}" Margin="0,0,10,4"/>
+            <TextBlock Text="{l:T Notes_Placement}" VerticalAlignment="Center" Margin="0,0,4,4"/>
+            <ComboBox x:Name="PlacementBox" Height="24" Margin="0,0,10,4" SelectionChanged="OnSettingsChanged">
+                <ComboBoxItem Content="{l:T Notes_PlacementPage}"/>
+                <ComboBoxItem Content="{l:T Notes_PlacementChapter}"/>
+            </ComboBox>
+            <TextBlock Text="{l:T Notes_Style}" VerticalAlignment="Center" Margin="0,0,4,4"/>
+            <ComboBox x:Name="StyleBox" Height="24" Margin="0,0,10,4" SelectionChanged="OnSettingsChanged">
+                <ComboBoxItem Content="1, 2, 3"/>
+                <ComboBoxItem Content="[1], [2], [3]"/>
+                <ComboBoxItem Content="*, **, ***"/>
+            </ComboBox>
+            <Button Content="{l:T Notes_Edit}" Padding="8,2" Margin="0,0,4,4" Click="OnEdit"/>
+            <Button Content="{l:T Notes_Delete}" Padding="8,2" Margin="0,0,4,4" Click="OnDelete"/>
+            <Button Content="{l:T Notes_GoToNote}" Padding="8,2" Margin="0,0,4,4" Click="OnGoToNote"/>
+            <Button Content="{l:T Notes_Renumber}" Padding="8,2" Margin="0,0,4,4" Click="OnRenumber" ToolTip="{l:T Notes_RenumberTip}"/>
+            <Button x:Name="ConvertButton" Padding="8,2" Margin="0,0,4,4" Click="OnConvert" Visibility="Collapsed"/>
+        </WrapPanel>
+        <TextBlock x:Name="CountText" DockPanel.Dock="Top" Margin="8,0,8,4" Foreground="#FF6B7280"/>
+        <ListView x:Name="List" BorderThickness="0,1,0,0" BorderBrush="#FFE5E7EB" MouseDoubleClick="OnDoubleClick" KeyDown="OnListKeyDown">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nº" DisplayMemberBinding="{Binding NumberText}" Width="44"/>
+                    <GridViewColumn Header="{l:T Notes_ColChapter}" DisplayMemberBinding="{Binding ChapterText}" Width="170"/>
+                    <GridViewColumn Header="{l:T Notes_ColWord}" DisplayMemberBinding="{Binding Context}" Width="200"/>
+                    <GridViewColumn Header="{l:T Notes_ColText}" DisplayMemberBinding="{Binding Text}" Width="520"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</UserControl>

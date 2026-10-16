@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Kaku.App/Kaku.App.csproj" />
+    <Project Path="src/Kaku.Core/Kaku.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Kaku.Core.Tests/Kaku.Core.Tests.csproj" />
+  </Folder>
+</Solution>

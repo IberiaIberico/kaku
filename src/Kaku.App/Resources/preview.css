@@ -1,0 +1,8 @@
+/* Injected by Kaku: highlight of the paragraph under the editor cursor. */
+.kaku-current {
+  background-color: rgba(255, 214, 102, 0.28) !important;
+  outline: 2px solid rgba(240, 170, 30, 0.55) !important;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+[data-kaku-b] { cursor: pointer; }

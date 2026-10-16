@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Menu_File" xml:space="preserve"><value>_Archivo</value></data>
+  <data name="Menu_Open" xml:space="preserve"><value>_Abrir libro…</value></data>
+  <data name="Menu_Recent" xml:space="preserve"><value>Libros _recientes</value></data>
+  <data name="Menu_RecentEmpty" xml:space="preserve"><value>(ninguno)</value></data>
+  <data name="Menu_CloseBook" xml:space="preserve"><value>_Cerrar libro</value></data>
+  <data name="Menu_Exit" xml:space="preserve"><value>_Salir</value></data>
+  <data name="Menu_Go" xml:space="preserve"><value>_Ir</value></data>
+  <data name="Menu_Palette" xml:space="preserve"><value>_Paleta de comandos…</value></data>
+  <data name="Menu_GoTo" xml:space="preserve"><value>_Ir a posición…</value></data>
+  <data name="Menu_NextChapter" xml:space="preserve"><value>Capítulo _siguiente</value></data>
+  <data name="Menu_PrevChapter" xml:space="preserve"><value>Capítulo _anterior</value></data>
+  <data name="Menu_View" xml:space="preserve"><value>_Ver</value></data>
+  <data name="Menu_ToggleMode" xml:space="preserve"><value>Cambiar modo _texto / código</value></data>
+  <data name="Menu_ShowLeft" xml:space="preserve"><value>Panel de _capítulos y archivos</value></data>
+  <data name="Menu_ShowPreview" xml:space="preserve"><value>_Vista previa</value></data>
+  <data name="Menu_CloseTab" xml:space="preserve"><value>Cerrar _pestaña</value></data>
+  <data name="Left_Chapters" xml:space="preserve"><value>Capítulos</value></data>
+  <data name="Left_Files" xml:space="preserve"><value>Archivos</value></data>
+  <data name="Left_FilterTip" xml:space="preserve"><value>Filtrar por título o por texto del capítulo</value></data>
+  <data name="Files_Text" xml:space="preserve"><value>Texto</value></data>
+  <data name="Files_Images" xml:space="preserve"><value>Imágenes</value></data>
+  <data name="Files_Styles" xml:space="preserve"><value>Estilos</value></data>
+  <data name="Files_Fonts" xml:space="preserve"><value>Fuentes</value></data>
+  <data name="Files_Other" xml:space="preserve"><value>Otros</value></data>
+  <data name="File_Size" xml:space="preserve"><value>{0} KB</value></data>
+  <data name="File_ImageInfo" xml:space="preserve"><value>{0}  ·  {1} × {2} px  ·  {3} KB</value></data>
+  <data name="File_NoPreview" xml:space="preserve"><value>No hay vista previa para este tipo de archivo.</value></data>
+  <data name="Chapter_Position" xml:space="preserve"><value>{0} % · {1} pal.</value></data>
+  <data name="Chapter_ImagePage" xml:space="preserve"><value>(página de imagen)</value></data>
+  <data name="Chapter_ParseError" xml:space="preserve"><value>El XHTML no es válido: {0}</value></data>
+  <data name="Chapter_NotesTip" xml:space="preserve"><value>Llamadas a notas en este capítulo</value></data>
+  <data name="Chapter_NonLinear" xml:space="preserve"><value>fuera del orden de lectura</value></data>
+  <data name="Empty_State" xml:space="preserve"><value>Abre un libro EPUB con Ctrl+O
+o arrástralo a esta ventana.</value></data>
+  <data name="Tab_Close" xml:space="preserve"><value>Cerrar (Ctrl+W)</value></data>
+  <data name="Preview_Title" xml:space="preserve"><value>Vista previa</value></data>
+  <data name="Preview_Empty" xml:space="preserve"><value>La vista previa del capítulo aparecerá aquí.</value></data>
+  <data name="Preview_Unavailable" xml:space="preserve"><value>La vista previa no está disponible (WebView2): {0}</value></data>
+  <data name="Hover_Ruby" xml:space="preserve"><value>Lectura (furigana): {0}</value></data>
+  <data name="Hover_NoteRef" xml:space="preserve"><value>Llamada a nota → {0}</value></data>
+  <data name="Hover_Link" xml:space="preserve"><value>Enlace → {0}</value></data>
+  <data name="Palette_Hint" xml:space="preserve"><value>↑↓ para elegir · Intro para ir · Esc para cerrar — capítulos, secciones, archivos y comandos</value></data>
+  <data name="Palette_Chapter" xml:space="preserve"><value>Capítulo</value></data>
+  <data name="Palette_Heading" xml:space="preserve"><value>Sección</value></data>
+  <data name="Palette_File" xml:space="preserve"><value>Archivo</value></data>
+  <data name="Palette_Command" xml:space="preserve"><value>Comando</value></data>
+  <data name="Cmd_Open" xml:space="preserve"><value>Abrir libro…</value></data>
+  <data name="Cmd_GoTo" xml:space="preserve"><value>Ir a posición…</value></data>
+  <data name="Cmd_ToggleMode" xml:space="preserve"><value>Cambiar modo texto / código</value></data>
+  <data name="Cmd_NextChapter" xml:space="preserve"><value>Capítulo siguiente</value></data>
+  <data name="Cmd_PrevChapter" xml:space="preserve"><value>Capítulo anterior</value></data>
+  <data name="Cmd_ToggleLeft" xml:space="preserve"><value>Mostrar u ocultar panel de capítulos</value></data>
+  <data name="Cmd_TogglePreview" xml:space="preserve"><value>Mostrar u ocultar vista previa</value></data>
+  <data name="Cmd_CloseTab" xml:space="preserve"><value>Cerrar pestaña</value></data>
+  <data name="GoTo_Title" xml:space="preserve"><value>Ir a posición</value></data>
+  <data name="GoTo_Prompt" xml:space="preserve"><value>Posición:</value></data>
+  <data name="GoTo_Go" xml:space="preserve"><value>Ir</value></data>
+  <data name="GoTo_Invalid" xml:space="preserve"><value>Formato no reconocido.</value></data>
+  <data name="GoTo_Describe" xml:space="preserve"><value>→ Cap. {0} «{1}» · párr. {2} · palabra {3} · {4} %</value></data>
+  <data name="GoTo_Help" xml:space="preserve"><value>Ejemplos:   45%   ·   45,8%   ·   w45210 o palabra 45.210   ·   7 (capítulo 7)   ·   7:120 (capítulo 7, párrafo 120)   ·   o parte del título de un capítulo.</value></data>
+  <data name="Common_Cancel" xml:space="preserve"><value>Cancelar</value></data>
+  <data name="Status_NoBook" xml:space="preserve"><value>Ningún libro abierto</value></data>
+  <data name="Status_Opening" xml:space="preserve"><value>Abriendo {0}…</value></data>
+  <data name="Status_Book" xml:space="preserve"><value>{0} · {1} capítulos · {2} palabras</value></data>
+  <data name="Status_Location" xml:space="preserve"><value>Cap. {0}/{1} «{2}»  ·  párr. {3}/{4}  ·  palabra {5} / {6}  ·  {7} %</value></data>
+  <data name="Status_TextMode" xml:space="preserve"><value>Modo texto (Ctrl+E)</value></data>
+  <data name="Status_CodeMode" xml:space="preserve"><value>Modo código (Ctrl+E)</value></data>
+  <data name="Dialog_OpenTitle" xml:space="preserve"><value>Abrir libro EPUB</value></data>
+  <data name="Dialog_EpubFilter" xml:space="preserve"><value>Libros EPUB (*.epub)|*.epub|Todos los archivos (*.*)|*.*</value></data>
+  <data name="Error_FileNotFound" xml:space="preserve"><value>No se encuentra el archivo:
+{0}</value></data>
+  <data name="Error_Open" xml:space="preserve"><value>No se pudo abrir el libro:
+{0}
+
+{1}</value></data>
+  <data name="Error_Unexpected" xml:space="preserve"><value>Error inesperado:
+{0}</value></data>
+  <data name="Chapter_Parts" xml:space="preserve"><value>{0} partes</value></data>
+  <data name="Chapter_ExpandTip" xml:space="preserve"><value>Mostrar u ocultar las partes y secciones (← →)</value></data>
+  <data name="Menu_Save" xml:space="preserve"><value>_Guardar</value></data>
+  <data name="Menu_SaveAs" xml:space="preserve"><value>Guardar _como…</value></data>
+  <data name="Menu_OpenBackups" xml:space="preserve"><value>Abrir carpeta de _copias de seguridad</value></data>
+  <data name="Menu_Edit" xml:space="preserve"><value>_Editar</value></data>
+  <data name="Menu_Undo" xml:space="preserve"><value>_Deshacer</value></data>
+  <data name="Menu_Redo" xml:space="preserve"><value>_Rehacer</value></data>
+  <data name="Menu_Cut" xml:space="preserve"><value>Cor_tar</value></data>
+  <data name="Menu_Copy" xml:space="preserve"><value>_Copiar</value></data>
+  <data name="Menu_Paste" xml:space="preserve"><value>_Pegar</value></data>
+  <data name="Menu_Bold" xml:space="preserve"><value>_Negrita</value></data>
+  <data name="Menu_Italic" xml:space="preserve"><value>_Cursiva</value></data>
+  <data name="Cmd_Save" xml:space="preserve"><value>Guardar</value></data>
+  <data name="Cmd_SaveAs" xml:space="preserve"><value>Guardar como…</value></data>
+  <data name="Cmd_Undo" xml:space="preserve"><value>Deshacer</value></data>
+  <data name="Cmd_Redo" xml:space="preserve"><value>Rehacer</value></data>
+  <data name="Cmd_Bold" xml:space="preserve"><value>Negrita</value></data>
+  <data name="Cmd_Italic" xml:space="preserve"><value>Cursiva</value></data>
+  <data name="Status_Modified" xml:space="preserve"><value>● Modificado</value></data>
+  <data name="Status_Saved" xml:space="preserve"><value>Guardado: {0}</value></data>
+  <data name="Status_SavedWithBackup" xml:space="preserve"><value>Guardado: {0} (copia de seguridad de la versión anterior creada)</value></data>
+  <data name="Status_NothingToSave" xml:space="preserve"><value>No hay cambios que guardar.</value></data>
+  <data name="Status_Recovered" xml:space="preserve"><value>Cambios recuperados de la sesión anterior. Guarda (Ctrl+S) para conservarlos.</value></data>
+  <data name="Chapter_ModifiedTip" xml:space="preserve"><value>Cambios sin guardar</value></data>
+  <data name="Dialog_SaveAsTitle" xml:space="preserve"><value>Guardar libro EPUB como</value></data>
+  <data name="Save_BrokenXhtml" xml:space="preserve"><value>Estos capítulos tienen XHTML no válido y el libro podría no abrirse bien en el lector:
+
+{0}
+
+¿Guardar igualmente?</value></data>
+  <data name="Save_ChangedOnDisk" xml:space="preserve"><value>El archivo ha cambiado en el disco desde que lo abriste:
+{0}
+
+¿Sobrescribirlo con tu versión?</value></data>
+  <data name="Save_Failed" xml:space="preserve"><value>No se pudo guardar el libro:
+{0}
+
+{1}
+
+El archivo original no se ha modificado.</value></data>
+  <data name="Confirm_SaveChanges" xml:space="preserve"><value>¿Guardar los cambios en «{0}»?</value></data>
+  <data name="Recovery_Offer" xml:space="preserve"><value>Hay cambios sin guardar de una sesión anterior ({0}, {1} archivo/s cambiados).
+
+¿Recuperarlos?</value></data>
+  <data name="Recovery_Startup" xml:space="preserve"><value>Kaku no se cerró correctamente.
+
+Hay cambios sin guardar en «{0}» ({1}).
+
+¿Abrir el libro y recuperarlos?</value></data>
+  <data name="Editor_XmlError" xml:space="preserve"><value>XHTML no válido (línea {0}): {1}  —  el modo texto no está disponible hasta corregirlo.</value></data>
+  <data name="Editor_GoToError" xml:space="preserve"><value>Ir al error</value></data>
+  <data name="Menu_Search" xml:space="preserve"><value>_Buscar</value></data>
+  <data name="Menu_FindChapter" xml:space="preserve"><value>Buscar en el _capítulo…</value></data>
+  <data name="Menu_FindBook" xml:space="preserve"><value>Buscar en todo el _libro…</value></data>
+  <data name="Menu_ReplaceMenu" xml:space="preserve"><value>_Reemplazar…</value></data>
+  <data name="Menu_NextHit" xml:space="preserve"><value>Resultado _siguiente</value></data>
+  <data name="Menu_PrevHit" xml:space="preserve"><value>Resultado _anterior</value></data>
+  <data name="Menu_FindPassage" xml:space="preserve"><value>Buscar _pasaje (pegar del lector)…</value></data>
+  <data name="Menu_ToggleBookmark" xml:space="preserve"><value>Poner o quitar _marcador</value></data>
+  <data name="Menu_NextBookmark" xml:space="preserve"><value>Marcador s_iguiente</value></data>
+  <data name="Menu_PrevBookmark" xml:space="preserve"><value>Marcador an_terior</value></data>
+  <data name="Menu_Back" xml:space="preserve"><value>_Atrás</value></data>
+  <data name="Menu_Forward" xml:space="preserve"><value>A_delante</value></data>
+  <data name="Menu_ToggleBottom" xml:space="preserve"><value>Panel de _búsqueda</value></data>
+  <data name="Cmd_FindBook" xml:space="preserve"><value>Buscar en todo el libro</value></data>
+  <data name="Cmd_FindChapter" xml:space="preserve"><value>Buscar en el capítulo</value></data>
+  <data name="Cmd_Replace" xml:space="preserve"><value>Reemplazar</value></data>
+  <data name="Cmd_FindPassage" xml:space="preserve"><value>Buscar pasaje (pegar del lector)</value></data>
+  <data name="Cmd_ToggleBookmark" xml:space="preserve"><value>Poner o quitar marcador</value></data>
+  <data name="Cmd_Back" xml:space="preserve"><value>Atrás</value></data>
+  <data name="Cmd_Forward" xml:space="preserve"><value>Adelante</value></data>
+  <data name="Cmd_ToggleBottom" xml:space="preserve"><value>Mostrar u ocultar el panel de búsqueda</value></data>
+  <data name="Left_Bookmarks" xml:space="preserve"><value>Marcadores</value></data>
+  <data name="Bookmarks_Empty" xml:space="preserve"><value>Sin marcadores. Ctrl+F2 marca el párrafo del cursor; F2 y Mayús+F2 van al siguiente y al anterior.</value></data>
+  <data name="Bookmarks_Delete" xml:space="preserve"><value>Eliminar marcador</value></data>
+  <data name="Bookmark_Header" xml:space="preserve"><value>Cap. {0} «{1}» · párr. {2}</value></data>
+  <data name="Bookmark_Position" xml:space="preserve"><value>{0} %</value></data>
+  <data name="Chapter_BookmarksTip" xml:space="preserve"><value>Marcadores en este capítulo</value></data>
+  <data name="Bottom_Search" xml:space="preserve"><value>Buscar y reemplazar</value></data>
+  <data name="Bottom_CloseTip" xml:space="preserve"><value>Cerrar el panel (Ctrl+J)</value></data>
+  <data name="Search_Find" xml:space="preserve"><value>Buscar:</value></data>
+  <data name="Search_Replace" xml:space="preserve"><value>Reemplazar:</value></data>
+  <data name="Search_MatchCase" xml:space="preserve"><value>Distinguir mayúsculas y minúsculas</value></data>
+  <data name="Search_WholeWord" xml:space="preserve"><value>Solo palabras completas</value></data>
+  <data name="Search_IgnoreAccents" xml:space="preserve"><value>Ignorar acentos (á = a, ñ = n)</value></data>
+  <data name="Search_Regex" xml:space="preserve"><value>Expresión regular (.NET). En el reemplazo: $1, ${nombre}, $$</value></data>
+  <data name="Search_WhereTip" xml:space="preserve"><value>Dónde buscar</value></data>
+  <data name="Search_InChapter" xml:space="preserve"><value>En el capítulo</value></data>
+  <data name="Search_InBook" xml:space="preserve"><value>En todo el libro</value></data>
+  <data name="Search_ScopeTip" xml:space="preserve"><value>Texto: lo que se lee (sin etiquetas). Código: el XHTML y los archivos CSS.</value></data>
+  <data name="Search_ScopeText" xml:space="preserve"><value>Texto</value></data>
+  <data name="Search_ScopeCode" xml:space="preserve"><value>Código</value></data>
+  <data name="Search_Saved" xml:space="preserve"><value>★ ▾</value></data>
+  <data name="Search_SavedTip" xml:space="preserve"><value>Búsquedas guardadas: problemas típicos de traducción y las tuyas</value></data>
+  <data name="Search_ReplaceOne" xml:space="preserve"><value>Reemplazar</value></data>
+  <data name="Search_ReplaceOneTip" xml:space="preserve"><value>Reemplaza el resultado seleccionado y pasa al siguiente (Intro en la casilla de reemplazo)</value></data>
+  <data name="Search_ReplaceAll" xml:space="preserve"><value>Reemplazar marcados</value></data>
+  <data name="Search_UndoReplace" xml:space="preserve"><value>Deshacer reemplazo</value></data>
+  <data name="Search_CheckAll" xml:space="preserve"><value>Marcar todos</value></data>
+  <data name="Search_None" xml:space="preserve"><value>Sin resultados</value></data>
+  <data name="Search_Count" xml:space="preserve"><value>{0} resultados en {1} archivo/s</value></data>
+  <data name="Search_CountTruncated" xml:space="preserve"><value>Más de {0} resultados (se muestran los primeros) en {1} archivo/s</value></data>
+  <data name="Search_Error" xml:space="preserve"><value>Expresión no válida: {0}</value></data>
+  <data name="Search_GroupChapter" xml:space="preserve"><value>Cap. {0} · {1}</value></data>
+  <data name="Search_PositionText" xml:space="preserve"><value>párr. {0} · {1} %</value></data>
+  <data name="Search_PositionLine" xml:space="preserve"><value>línea {0}</value></data>
+  <data name="Search_ConfirmReplaceAll" xml:space="preserve"><value>Se van a reemplazar {0} coincidencias en {1} archivo/s por «{2}».
+
+Puedes deshacerlo con «Deshacer reemplazo» o con Ctrl+Z en cada capítulo.</value></data>
+  <data name="Search_SaveCurrent" xml:space="preserve"><value>Guardar la búsqueda actual…</value></data>
+  <data name="Search_ClearSaved" xml:space="preserve"><value>Borrar mis búsquedas guardadas</value></data>
+  <data name="Search_SaveTitle" xml:space="preserve"><value>Guardar búsqueda</value></data>
+  <data name="Search_SavePrompt" xml:space="preserve"><value>Nombre de la búsqueda:</value></data>
+  <data name="Saved_Japanese" xml:space="preserve"><value>Caracteres japoneses sin traducir</value></data>
+  <data name="Saved_StraightQuotes" xml:space="preserve"><value>Comillas rectas "</value></data>
+  <data name="Saved_Guillemets" xml:space="preserve"><value>Comillas angulares « »</value></data>
+  <data name="Saved_CurlyQuotes" xml:space="preserve"><value>Comillas inglesas “ ”</value></data>
+  <data name="Saved_JapaneseQuotes" xml:space="preserve"><value>Comillas japonesas 「」『』</value></data>
+  <data name="Saved_HyphenDialogue" xml:space="preserve"><value>Diálogo con guion en lugar de raya</value></data>
+  <data name="Saved_ThreeDots" xml:space="preserve"><value>Tres puntos en lugar de …</value></data>
+  <data name="Saved_SpaceBeforePunct" xml:space="preserve"><value>Espacio antes de puntuación</value></data>
+  <data name="Saved_RepeatedWord" xml:space="preserve"><value>Palabra repetida</value></data>
+  <data name="Saved_ModelTokens" xml:space="preserve"><value>Restos del modelo &lt;|…|&gt;</value></data>
+  <data name="Status_Replaced" xml:space="preserve"><value>{0} reemplazos hechos.</value></data>
+  <data name="Status_ReplacedSkipped" xml:space="preserve"><value>{0} reemplazos hechos; {1} omitidos (el texto cambió, o rompería el XHTML o una imagen).</value></data>
+  <data name="Status_ReplaceUndone" xml:space="preserve"><value>Reemplazo deshecho.</value></data>
+  <data name="Status_BookmarkAdded" xml:space="preserve"><value>Marcador añadido.</value></data>
+  <data name="Status_BookmarkRemoved" xml:space="preserve"><value>Marcador quitado.</value></data>
+  <data name="Passage_Title" xml:space="preserve"><value>Buscar pasaje</value></data>
+  <data name="Passage_Prompt" xml:space="preserve"><value>Pega o escribe unas palabras de lo que leíste en el lector. No importa si faltan acentos, cambian las comillas o hay saltos de línea, ni si falla alguna palabra. (Intro: ir · Mayús+Intro: nueva línea)</value></data>
+  <data name="Passage_Header" xml:space="preserve"><value>Cap. {0} «{1}» · párr. {2} · palabra {3} · {4} %</value></data>
+  <data name="Passage_None" xml:space="preserve"><value>No se encontró nada parecido.</value></data>
+  <data name="Passage_Count" xml:space="preserve"><value>{0} lugares parecidos</value></data>
+  <data name="Common_Ok" xml:space="preserve"><value>Aceptar</value></data>
+  <data name="Menu_Book" xml:space="preserve"><value>_Libro</value></data>
+  <data name="Menu_AddPage" xml:space="preserve"><value>_Añadir página…</value></data>
+  <data name="Menu_ImportPage" xml:space="preserve"><value>_Importar archivo como página (TXT, Markdown, HTML)…</value></data>
+  <data name="Menu_DuplicatePage" xml:space="preserve"><value>_Duplicar capítulo</value></data>
+  <data name="Menu_RenamePage" xml:space="preserve"><value>_Renombrar archivo del capítulo…</value></data>
+  <data name="Menu_DeletePages" xml:space="preserve"><value>_Eliminar capítulo(s)…</value></data>
+  <data name="Menu_MoveUp" xml:space="preserve"><value>Mover capítulo arri_ba</value></data>
+  <data name="Menu_MoveDown" xml:space="preserve"><value>Mover capítulo aba_jo</value></data>
+  <data name="Menu_Split" xml:space="preserve"><value>Dividir capítulo en el cur_sor</value></data>
+  <data name="Menu_Merge" xml:space="preserve"><value>_Unir con el capítulo siguiente…</value></data>
+  <data name="Menu_Toc" xml:space="preserve"><value>Índice (_tabla de contenidos)…</value></data>
+  <data name="Menu_Metadata" xml:space="preserve"><value>_Metadatos y portada…</value></data>
+  <data name="Menu_Gallery" xml:space="preserve"><value>Imá_genes…</value></data>
+  <data name="Menu_AddFile" xml:space="preserve"><value>Añadir arc_hivo (imagen, fuente, CSS)…</value></data>
+  <data name="Menu_Check" xml:space="preserve"><value>Re_visar enlaces y archivos…</value></data>
+  <data name="Menu_UndoStructure" xml:space="preserve"><value>Deshacer cambio de estructura</value></data>
+  <data name="Menu_UndoStructureLabel" xml:space="preserve"><value>Deshacer «{0}»</value></data>
+  <data name="Menu_RedoStructure" xml:space="preserve"><value>Rehacer cambio de estructura</value></data>
+  <data name="Menu_InsertImage" xml:space="preserve"><value>Insertar _imagen…</value></data>
+  <data name="Status_StructureDone" xml:space="preserve"><value>Hecho: {0}. (Libro → Deshacer, o Ctrl+Z en el panel de capítulos)</value></data>
+  <data name="Status_StructureUndone" xml:space="preserve"><value>Deshecho: {0}.</value></data>
+  <data name="AddPage_Title" xml:space="preserve"><value>Añadir página</value></data>
+  <data name="AddPage_Type" xml:space="preserve"><value>Tipo de página:</value></data>
+  <data name="AddPage_Blank" xml:space="preserve"><value>Página en blanco</value></data>
+  <data name="AddPage_Note" xml:space="preserve"><value>Nota del traductor</value></data>
+  <data name="AddPage_Characters" xml:space="preserve"><value>Personajes</value></data>
+  <data name="AddPage_PageTitle" xml:space="preserve"><value>Título:</value></data>
+  <data name="AddPage_DefaultTitle" xml:space="preserve"><value>Página nueva</value></data>
+  <data name="AddPage_Where" xml:space="preserve"><value>Dónde:</value></data>
+  <data name="AddPage_After" xml:space="preserve"><value>Después del capítulo actual</value></data>
+  <data name="AddPage_Before" xml:space="preserve"><value>Antes del capítulo actual</value></data>
+  <data name="AddPage_End" xml:space="preserve"><value>Al final del libro</value></data>
+  <data name="AddPage_AddToToc" xml:space="preserve"><value>Añadir al índice</value></data>
+  <data name="AddPage_Add" xml:space="preserve"><value>Añadir</value></data>
+  <data name="AddPage_Import" xml:space="preserve"><value>Importar archivo…</value></data>
+  <data name="AddPage_ImportTip" xml:space="preserve"><value>Usa el contenido de un archivo TXT, Markdown o HTML como texto de la página</value></data>
+  <data name="AddPage_ImportFilter" xml:space="preserve"><value>Texto, Markdown o HTML|*.txt;*.md;*.markdown;*.html;*.htm;*.xhtml|Todos los archivos|*.*</value></data>
+  <data name="AddPage_Imported" xml:space="preserve"><value>Importado: {0} ({1} caracteres de XHTML).</value></data>
+  <data name="Pages_CannotDeleteAll" xml:space="preserve"><value>No se pueden eliminar todos los capítulos del libro.</value></data>
+  <data name="Pages_ConfirmDelete" xml:space="preserve"><value>¿Eliminar {0} capítulo(s)?
+
+{1}
+
+Se quitan del libro, del orden de lectura y del índice. Puedes deshacerlo con Libro → Deshacer cambio de estructura.</value></data>
+  <data name="Pages_DeleteLinks" xml:space="preserve"><value>Atención: hay {0} enlace(s) desde {1} archivo(s) que apuntan a estas páginas; quedarán rotos (Libro → Revisar enlaces).</value></data>
+  <data name="Pages_RenameTitle" xml:space="preserve"><value>Renombrar archivo</value></data>
+  <data name="Pages_RenamePrompt" xml:space="preserve"><value>Nuevo nombre para {0}
+(los enlaces, el manifiesto y el índice se actualizan solos):</value></data>
+  <data name="Pages_SplitNeedsEditor" xml:space="preserve"><value>Abre el capítulo y pon el cursor en el párrafo donde debe empezar el nuevo archivo.</value></data>
+  <data name="Pages_ConfirmMerge" xml:space="preserve"><value>¿Unir «{0}. {1}» con «{2}. {3}»?
+
+El texto del segundo pasa al final del primero y su archivo se elimina; los enlaces se redirigen.</value></data>
+  <data name="Ctx_Open" xml:space="preserve"><value>Abrir</value></data>
+  <data name="Ctx_AddBefore" xml:space="preserve"><value>Añadir página antes…</value></data>
+  <data name="Ctx_AddAfter" xml:space="preserve"><value>Añadir página después…</value></data>
+  <data name="Ctx_Import" xml:space="preserve"><value>Importar archivo como página…</value></data>
+  <data name="Ctx_Rename" xml:space="preserve"><value>Renombrar…</value></data>
+  <data name="Ctx_Duplicate" xml:space="preserve"><value>Duplicar</value></data>
+  <data name="Ctx_MoveUp" xml:space="preserve"><value>Mover arriba</value></data>
+  <data name="Ctx_MoveDown" xml:space="preserve"><value>Mover abajo</value></data>
+  <data name="Ctx_Merge" xml:space="preserve"><value>Unir con el siguiente…</value></data>
+  <data name="Ctx_Split" xml:space="preserve"><value>Dividir en el cursor</value></data>
+  <data name="Ctx_Delete" xml:space="preserve"><value>Eliminar…</value></data>
+  <data name="Ctx_DeleteMany" xml:space="preserve"><value>Eliminar {0} capítulos…</value></data>
+  <data name="Files_Replace" xml:space="preserve"><value>Reemplazar por otro archivo…</value></data>
+  <data name="Files_ReplaceTitle" xml:space="preserve"><value>Reemplazar {0}</value></data>
+  <data name="Files_Usages" xml:space="preserve"><value>Dónde se usa…</value></data>
+  <data name="Files_Add" xml:space="preserve"><value>Añadir archivo…</value></data>
+  <data name="Files_AddFilter" xml:space="preserve"><value>Imágenes, fuentes y estilos|*.jpg;*.jpeg;*.png;*.gif;*.webp;*.svg;*.ttf;*.otf;*.woff;*.woff2;*.css|Todos los archivos|*.*</value></data>
+  <data name="Files_ConfirmDelete" xml:space="preserve"><value>¿Eliminar {0} del libro?</value></data>
+  <data name="Files_DeleteUsed" xml:space="preserve"><value>Se usa en {0} sitio(s); esos enlaces quedarán rotos:
+{1}</value></data>
+  <data name="Files_NoUsages" xml:space="preserve"><value>Ningún archivo usa {0}.</value></data>
+  <data name="Gallery_TabTitle" xml:space="preserve"><value>Imágenes</value></data>
+  <data name="Gallery_Add" xml:space="preserve"><value>Añadir…</value></data>
+  <data name="Gallery_Insert" xml:space="preserve"><value>Insertar en el texto</value></data>
+  <data name="Gallery_InsertTip" xml:space="preserve"><value>Inserta la imagen en un párrafo nuevo después del cursor del capítulo abierto (doble clic)</value></data>
+  <data name="Gallery_Replace" xml:space="preserve"><value>Reemplazar…</value></data>
+  <data name="Gallery_Cover" xml:space="preserve"><value>Usar como portada</value></data>
+  <data name="Gallery_Usages" xml:space="preserve"><value>Dónde se usa ▾</value></data>
+  <data name="Gallery_Delete" xml:space="preserve"><value>Eliminar…</value></data>
+  <data name="Gallery_NoPreview" xml:space="preserve"><value>(sin vista previa)</value></data>
+  <data name="Gallery_CoverBadge" xml:space="preserve"><value>PORTADA</value></data>
+  <data name="Gallery_Unused" xml:space="preserve"><value>Sin usar</value></data>
+  <data name="Gallery_UsedIn" xml:space="preserve"><value>Usada en {0} archivo(s)</value></data>
+  <data name="Gallery_Count" xml:space="preserve"><value>{0} imágenes · {1} KB</value></data>
+  <data name="Images_NeedEditor" xml:space="preserve"><value>Abre primero el capítulo y pon el cursor donde quieres la imagen.</value></data>
+  <data name="Images_PickTitle" xml:space="preserve"><value>Insertar imagen</value></data>
+  <data name="Toc_Title" xml:space="preserve"><value>Índice (tabla de contenidos)</value></data>
+  <data name="Toc_Help" xml:space="preserve"><value>Edita los títulos directamente. Alt+↑/↓ mueve, Alt+←/→ cambia el nivel. Se guarda en el índice del libro (nav y/o NCX) que ve el lector.</value></data>
+  <data name="Toc_Up" xml:space="preserve"><value>↑ Subir</value></data>
+  <data name="Toc_Down" xml:space="preserve"><value>↓ Bajar</value></data>
+  <data name="Toc_Outdent" xml:space="preserve"><value>← Menos nivel</value></data>
+  <data name="Toc_Indent" xml:space="preserve"><value>→ Más nivel</value></data>
+  <data name="Toc_AddCurrent" xml:space="preserve"><value>Añadir posición del cursor</value></data>
+  <data name="Toc_Delete" xml:space="preserve"><value>Quitar entrada</value></data>
+  <data name="Toc_Generate" xml:space="preserve"><value>Generar desde los capítulos</value></data>
+  <data name="Toc_GenerateTip" xml:space="preserve"><value>Una entrada por capítulo con título (sin las partes de continuación) y sus encabezados</value></data>
+  <data name="Toc_Sort" xml:space="preserve"><value>Ordenar según el libro</value></data>
+  <data name="Toc_Paragraph" xml:space="preserve"><value>párr. {0}</value></data>
+  <data name="Toc_ConfirmGenerate" xml:space="preserve"><value>¿Sustituir las entradas actuales por un índice generado a partir de los capítulos y sus encabezados?</value></data>
+  <data name="Toc_EmptyTitle" xml:space="preserve"><value>Hay entradas sin título.</value></data>
+  <data name="Meta_Title" xml:space="preserve"><value>Metadatos y portada</value></data>
+  <data name="Meta_BookTitle" xml:space="preserve"><value>Título:</value></data>
+  <data name="Meta_Authors" xml:space="preserve"><value>Autor(es):</value></data>
+  <data name="Meta_AuthorsTip" xml:space="preserve"><value>Uno por línea (por ejemplo, la autora y el traductor)</value></data>
+  <data name="Meta_Language" xml:space="preserve"><value>Idioma:</value></data>
+  <data name="Meta_LanguageTip" xml:space="preserve"><value>Código de idioma: es, ja, en…</value></data>
+  <data name="Meta_Publisher" xml:space="preserve"><value>Editorial:</value></data>
+  <data name="Meta_Series" xml:space="preserve"><value>Serie:</value></data>
+  <data name="Meta_SeriesIndex" xml:space="preserve"><value>Número en la serie</value></data>
+  <data name="Meta_Description" xml:space="preserve"><value>Descripción:</value></data>
+  <data name="Meta_Cover" xml:space="preserve"><value>Portada:</value></data>
+  <data name="Meta_CoverTip" xml:space="preserve"><value>Imagen que el lector usa como portada</value></data>
+  <data name="Meta_NoCover" xml:space="preserve"><value>(sin cambiar)</value></data>
+  <data name="Meta_NeedTitle" xml:space="preserve"><value>El libro necesita un título.</value></data>
+  <data name="Check_Title" xml:space="preserve"><value>Revisar enlaces y archivos</value></data>
+  <data name="Check_AllGood" xml:space="preserve"><value>Todo en orden: no hay enlaces rotos ni archivos sueltos.</value></data>
+  <data name="Check_Summary" xml:space="preserve"><value>{0} problema(s). Doble clic para ir al sitio.</value></data>
+  <data name="Check_Kind" xml:space="preserve"><value>Tipo</value></data>
+  <data name="Check_Detail" xml:space="preserve"><value>Detalle</value></data>
+  <data name="Check_File" xml:space="preserve"><value>Archivo</value></data>
+  <data name="Check_Where" xml:space="preserve"><value>Dónde</value></data>
+  <data name="Check_BrokenLink" xml:space="preserve"><value>Enlace roto</value></data>
+  <data name="Check_MissingFragment" xml:space="preserve"><value>Destino inexistente</value></data>
+  <data name="Check_MissingFile" xml:space="preserve"><value>Falta el archivo</value></data>
+  <data name="Check_NotInManifest" xml:space="preserve"><value>Fuera del manifiesto</value></data>
+  <data name="Check_Unused" xml:space="preserve"><value>Sin usar</value></data>
+  <data name="Check_InvalidXhtml" xml:space="preserve"><value>XHTML no válido</value></data>
+  <data name="Check_DeleteUnused" xml:space="preserve"><value>Eliminar archivos sin usar ({0})</value></data>
+  <data name="Check_AddUnlisted" xml:space="preserve"><value>Añadir al manifiesto ({0})</value></data>
+  <data name="Check_RemoveMissing" xml:space="preserve"><value>Quitar del manifiesto los que faltan ({0})</value></data>
+  <data name="Check_ConfirmDelete" xml:space="preserve"><value>¿Eliminar {0} archivo(s) que nada usa?
+
+{1}</value></data>
+  <data name="Common_Close" xml:space="preserve"><value>Cerrar</value></data>
+  <data name="Check_OrphanMarker" xml:space="preserve"><value>Llamada sin nota</value></data>
+  <data name="Check_NoteWithoutMarker" xml:space="preserve"><value>Nota sin llamada</value></data>
+  <data name="Menu_InsertNote" xml:space="preserve"><value>Insertar _nota…</value></data>
+  <data name="Menu_NotesPanel" xml:space="preserve"><value>Panel de _notas</value></data>
+  <data name="Bottom_Notes" xml:space="preserve"><value>Notas</value></data>
+  <data name="Hover_Note" xml:space="preserve"><value>Nota: {0}</value></data>
+  <data name="Note_Title" xml:space="preserve"><value>Nueva nota</value></data>
+  <data name="Note_EditTitle" xml:space="preserve"><value>Editar nota {0}</value></data>
+  <data name="Note_New" xml:space="preserve"><value>Escribir una nota nueva:</value></data>
+  <data name="Note_FormatHelp" xml:space="preserve"><value>**negrita**, *cursiva* · Ctrl+Intro para aceptar</value></data>
+  <data name="Note_Reuse" xml:space="preserve"><value>Usar una nota que ya existe (la misma explicación, otra llamada):</value></data>
+  <data name="Note_Suggest" xml:space="preserve"><value>Ya hay una nota que menciona «{0}».</value></data>
+  <data name="Note_Empty" xml:space="preserve"><value>Escribe el texto de la nota.</value></data>
+  <data name="Note_NeedEditor" xml:space="preserve"><value>Abre el capítulo y pon el cursor detrás de la palabra que quieres anotar.</value></data>
+  <data name="Note_Where" xml:space="preserve"><value>Cap. {0} «{1}» · párr. {2} {3}</value></data>
+  <data name="Notes_FilterTip" xml:space="preserve"><value>Filtrar notas por texto, palabra o capítulo</value></data>
+  <data name="Notes_Placement" xml:space="preserve"><value>Colocación:</value></data>
+  <data name="Notes_PlacementPage" xml:space="preserve"><value>página «Notas» al final</value></data>
+  <data name="Notes_PlacementChapter" xml:space="preserve"><value>al final de cada capítulo</value></data>
+  <data name="Notes_Style" xml:space="preserve"><value>Llamadas:</value></data>
+  <data name="Notes_Edit" xml:space="preserve"><value>Editar…</value></data>
+  <data name="Notes_Delete" xml:space="preserve"><value>Eliminar…</value></data>
+  <data name="Notes_GoToNote" xml:space="preserve"><value>Ir al texto de la nota</value></data>
+  <data name="Notes_Renumber" xml:space="preserve"><value>Renumerar</value></data>
+  <data name="Notes_RenumberTip" xml:space="preserve"><value>Vuelve a numerar y repara llamadas y enlaces (por ejemplo, tras editar en modo código)</value></data>
+  <data name="Notes_Convert" xml:space="preserve"><value>Convertir {0} nota(s) existentes</value></data>
+  <data name="Notes_ConfirmConvert" xml:space="preserve"><value>El libro tiene {0} nota(s) en otro formato (de la editorial o de otra herramienta).
+
+¿Convertirlas al formato de Kaku? Se numerarán, tendrán enlace de vuelta y se colocarán según el ajuste elegido.</value></data>
+  <data name="Notes_ColChapter" xml:space="preserve"><value>Capítulo</value></data>
+  <data name="Notes_ColWord" xml:space="preserve"><value>Palabra</value></data>
+  <data name="Notes_ColText" xml:space="preserve"><value>Texto de la nota</value></data>
+  <data name="Notes_NoMarker" xml:space="preserve"><value>(sin llamada)</value></data>
+  <data name="Notes_None" xml:space="preserve"><value>Sin notas. Pon el cursor detrás de una palabra y pulsa Ctrl+Alt+N.</value></data>
+  <data name="Notes_Count" xml:space="preserve"><value>{0} nota(s) · {1}. Doble clic para ir a la llamada.</value></data>
+  <data name="Notes_Orphans" xml:space="preserve"><value>{0} llamada(s) sin nota (Libro → Revisar)</value></data>
+  <data name="Notes_ConfirmDelete" xml:space="preserve"><value>¿Eliminar la nota {0}?
+
+«{1}»</value></data>
+  <data name="Notes_DeleteMarkers" xml:space="preserve"><value>Esta nota tiene {0} llamadas en el texto; se quitan todas.</value></data>
+  <data name="Check_Kind_Japanese" xml:space="preserve"><value>Texto japonés</value></data>
+  <data name="Check_Kind_ModelTokens" xml:space="preserve"><value>Restos del modelo</value></data>
+  <data name="Check_Kind_Spelling" xml:space="preserve"><value>Ortografía</value></data>
+  <data name="Check_Kind_RepeatedWord" xml:space="preserve"><value>Palabra repetida</value></data>
+  <data name="Check_Kind_MixedQuotes" xml:space="preserve"><value>Comillas mezcladas</value></data>
+  <data name="Check_Kind_StraightQuotes" xml:space="preserve"><value>Comillas rectas</value></data>
+  <data name="Check_Kind_JapaneseQuotes" xml:space="preserve"><value>Comillas japonesas</value></data>
+  <data name="Check_Kind_HyphenDialogue" xml:space="preserve"><value>Guion en lugar de raya</value></data>
+  <data name="Check_Kind_ThreeDots" xml:space="preserve"><value>Tres puntos (…)</value></data>
+  <data name="Check_Kind_SpaceBeforePunct" xml:space="preserve"><value>Espacio antes de puntuación</value></data>
+  <data name="Check_Kind_MissingSpaceAfterPunct" xml:space="preserve"><value>Falta espacio tras puntuación</value></data>
+  <data name="Check_Kind_OddSpaces" xml:space="preserve"><value>Espacios raros</value></data>
+  <data name="Check_Kind_UnpairedMarks" xml:space="preserve"><value>¿? ¡! sin pareja</value></data>
+  <data name="Check_Kind_EmptyParagraphs" xml:space="preserve"><value>Párrafos vacíos</value></data>
+  <data name="Check_Kind_Epub" xml:space="preserve"><value>EPUB</value></data>
+  <data name="Bottom_Problems" xml:space="preserve"><value>Problemas</value></data>
+  <data name="Menu_SpellCheck" xml:space="preserve"><value>Revisar _ortografía al escribir</value></data>
+  <data name="Menu_UserDictionary" xml:space="preserve"><value>Diccionario _personal…</value></data>
+  <data name="Menu_ProblemsPanel" xml:space="preserve"><value>Panel de _problemas</value></data>
+  <data name="Menu_Epubcheck" xml:space="preserve"><value>Validar con _epubcheck…</value></data>
+  <data name="Problems_ScopeChapter" xml:space="preserve"><value>Capítulo actual</value></data>
+  <data name="Problems_ScopeBook" xml:space="preserve"><value>Todo el libro</value></data>
+  <data name="Problems_Spelling" xml:space="preserve"><value>Ortografía</value></data>
+  <data name="Problems_Refresh" xml:space="preserve"><value>Revisar</value></data>
+  <data name="Problems_Fix" xml:space="preserve"><value>Corregir</value></data>
+  <data name="Problems_FixTip" xml:space="preserve"><value>Aplica la corrección propuesta a los problemas seleccionados</value></data>
+  <data name="Problems_FixAll" xml:space="preserve"><value>Corregir todos ({0})</value></data>
+  <data name="Problems_FixAllKinds" xml:space="preserve"><value>Corregir todo lo automático ({0})</value></data>
+  <data name="Problems_AllFixable" xml:space="preserve"><value>todos los tipos con corrección automática</value></data>
+  <data name="Problems_ConfirmFixAll" xml:space="preserve"><value>¿Aplicar {0} correcciones automáticas ({1})?
+
+Se puede deshacer con Ctrl+Z en cada capítulo.</value></data>
+  <data name="Problems_Epubcheck" xml:space="preserve"><value>epubcheck…</value></data>
+  <data name="Problems_EpubcheckTip" xml:space="preserve"><value>Valida el libro con epubcheck, el validador oficial (necesita Java)</value></data>
+  <data name="Problems_AllKinds" xml:space="preserve"><value>Todos los tipos ({0})</value></data>
+  <data name="Problems_ColKind" xml:space="preserve"><value>Tipo</value></data>
+  <data name="Problems_ColWhere" xml:space="preserve"><value>Dónde</value></data>
+  <data name="Problems_ColText" xml:space="preserve"><value>Texto</value></data>
+  <data name="Problems_Where" xml:space="preserve"><value>Cap. {0} «{1}» · párr. {2}</value></data>
+  <data name="Problems_None" xml:space="preserve"><value>No hay problemas.</value></data>
+  <data name="Problems_Summary" xml:space="preserve"><value>{0} errores · {1} avisos · {2} sugerencias. Doble clic para ir; clic derecho en una palabra para ver sugerencias.</value></data>
+  <data name="Problems_Truncated" xml:space="preserve"><value>(se muestran los 5.000 primeros)</value></data>
+  <data name="Problems_Running" xml:space="preserve"><value>Revisando…</value></data>
+  <data name="Problems_FixDelete" xml:space="preserve"><value>quitar</value></data>
+  <data name="Problems_Go" xml:space="preserve"><value>Ir al problema</value></data>
+  <data name="Spell_NoSuggestions" xml:space="preserve"><value>(sin sugerencias)</value></data>
+  <data name="Spell_Add" xml:space="preserve"><value>Añadir «{0}» al diccionario</value></data>
+  <data name="Spell_Ignore" xml:space="preserve"><value>Ignorar en esta sesión</value></data>
+  <data name="Spell_UserFileInfo" xml:space="preserve"><value>El diccionario personal es un archivo de texto con una palabra por línea. Se aplica al volver a abrir Kaku.</value></data>
+  <data name="Status_Fixed" xml:space="preserve"><value>{0} correcciones aplicadas.</value></data>
+  <data name="Status_FixedSkipped" xml:space="preserve"><value>{0} correcciones aplicadas; {1} omitidas (el texto cambió o se solapaban).</value></data>
+  <data name="Epubcheck_NoJava" xml:space="preserve"><value>epubcheck necesita Java, y no está instalado.
+
+1. Instala Java (por ejemplo, Eclipse Temurin: https://adoptium.net).
+2. Descarga epubcheck: https://github.com/w3c/epubcheck/releases (descomprime el zip).
+3. Vuelve aquí y elige epubcheck.jar.
+
+Mientras tanto, el panel de problemas ya hace las comprobaciones principales del EPUB.</value></data>
+  <data name="Epubcheck_PickJar" xml:space="preserve"><value>Busca epubcheck.jar (en la carpeta donde descomprimiste epubcheck)</value></data>
+  <data name="Epubcheck_Running" xml:space="preserve"><value>epubcheck está validando el libro…</value></data>
+  <data name="Epubcheck_Failed" xml:space="preserve"><value>epubcheck no pudo terminar:
+
+{0}</value></data>
+  <data name="Epubcheck_Clean" xml:space="preserve"><value>epubcheck: sin errores ni avisos.</value></data>
+  <data name="Epubcheck_Count" xml:space="preserve"><value>epubcheck: {0} mensajes en el panel de problemas.</value></data>
+</root>

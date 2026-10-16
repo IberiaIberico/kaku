@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>Kaku.App</RootNamespace>
+    <AssemblyName>Kaku</AssemblyName>
+    <Product>Kaku</Product>
+    <Version>0.1.0</Version>
+    <ApplicationIcon>Assets\kaku.ico</ApplicationIcon>
+    <NeutralLanguage>es</NeutralLanguage>
+    <SatelliteResourceLanguages>es</SatelliteResourceLanguages>
+    <!-- single self-contained EXE: dotnet publish src/Kaku.App -c Release -->
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Kaku.Core\Kaku.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AvalonEdit" Version="6.3.1.120" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4258.31" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\kaku.ico" />
+    <Resource Include="Assets\kaku_logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\preview.js" LogicalName="Kaku.preview.js" />
+    <EmbeddedResource Include="Resources\preview.css" LogicalName="Kaku.preview.css" />
+    <EmbeddedResource Include="Resources\Dictionaries\es_ES.dic" LogicalName="Kaku.es_ES.dic" />
+    <EmbeddedResource Include="Resources\Dictionaries\es_ES.aff" LogicalName="Kaku.es_ES.aff" />
+    <None Include="Resources\Dictionaries\LICENSE.md" />
+    <None Include="Resources\Dictionaries\README_hunspell_es.txt" />
+  </ItemGroup>
+
+</Project>

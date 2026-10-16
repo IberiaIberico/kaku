@@ -83,6 +83,7 @@ public partial class MainWindow : Window
         InitStructure();
         InitNotes();
         InitProblems();
+        InitReference();
         if (_settings.ShowBottomPanel) Loaded += (_, _) => SetBottomPanel(true);
         UpdateStatus();
     }
@@ -162,6 +163,7 @@ public partial class MainWindow : Window
         ResetSearchState(book);
         _structure = new Kaku.Core.Structure.BookStructure(book);
         LearnBookNames(book);
+        LoadReferenceFor(book);
         UpdateStructureMenus();
 
         // open the first chapter with real text (skips cover / image pages)
@@ -204,6 +206,9 @@ public partial class MainWindow : Window
         ResetSearchState(null);
         _structure = null;
         UpdateStructureMenus();
+        _reference = null;
+        OriginalPreview.SetBook(null);
+        UpdateOriginalUi();
         _currentChapter = -1;
         Title = "Kaku";
         CloseBookMenu.IsEnabled = false;
@@ -331,6 +336,7 @@ public partial class MainWindow : Window
             if (_previewFollowsItself) Preview.SetCurrentPath(ed.Chapter.Path);
             else Preview.ShowChapter(ed.Chapter, ed.CurrentLocation.Block);
             _lastPreviewBlock = ed.CurrentLocation.Block;
+            SyncOriginal(force: true);
         }
         UpdateStatus();
     }
@@ -397,6 +403,7 @@ public partial class MainWindow : Window
     {
         if (ActiveTab?.Editor is not { } ed) return;
         int block = ed.CurrentLocation.Block;
+        SyncOriginal();
         if (block == _lastPreviewBlock) return;
         _lastPreviewBlock = block;
         Preview.ScrollToBlock(block);
@@ -700,7 +707,7 @@ public partial class MainWindow : Window
     /// <summary>All window-level shortcuts (also used for keys pressed while the preview has focus).</summary>
     private bool HandleKey(Key key, ModifierKeys mods)
     {
-        if (HandleStructureShortcut(key, mods) || HandleNotesShortcut(key, mods) || HandleProblemsShortcut(key, mods) || HandleEditShortcut(key, mods) || HandleSearchShortcut(key, mods)) return true;
+        if (HandleReferenceShortcut(key, mods) || HandleStructureShortcut(key, mods) || HandleNotesShortcut(key, mods) || HandleProblemsShortcut(key, mods) || HandleEditShortcut(key, mods) || HandleSearchShortcut(key, mods)) return true;
         bool handled = true;
         if (mods == ModifierKeys.Control)
         {

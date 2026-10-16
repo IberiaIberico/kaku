@@ -1,0 +1,24 @@
+/* Injected by Kaku in the "Original" view: Japanese books are shown in horizontal writing so they scroll like the translation. */
+html, body, body * {
+  writing-mode: horizontal-tb !important;
+  -webkit-writing-mode: horizontal-tb !important;
+  -epub-writing-mode: horizontal-tb !important;
+  text-orientation: mixed !important;
+  -webkit-text-orientation: mixed !important;
+  text-combine-upright: none !important;
+  -webkit-text-combine: none !important;
+  -epub-text-combine: none !important;
+}
+html, body {
+  width: auto !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  columns: auto !important;
+}
+body {
+  margin: 1em 1.2em !important;
+  line-height: 1.8 !important;
+}
+p { margin-top: 0 !important; margin-bottom: 0.2em !important; }
+img, svg { max-width: 100% !important; height: auto !important; }

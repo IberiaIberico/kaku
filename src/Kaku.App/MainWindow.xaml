@@ -173,6 +173,8 @@
                 <Separator/>
                 <MenuItem Header="{l:T Menu_Toc}" InputGestureText="Ctrl+Alt+T" Click="OnTocClick"/>
                 <MenuItem Header="{l:T Menu_Metadata}" Click="OnMetadataClick"/>
+                <MenuItem Header="{l:T Menu_Original}" InputGestureText="Ctrl+Alt+O" Click="OnOriginalMenuClick"/>
+                <MenuItem Header="{l:T Menu_ClearPins}" Click="OnClearPinsClick"/>
                 <MenuItem Header="{l:T Menu_Gallery}" Click="OnGalleryClick"/>
                 <MenuItem Header="{l:T Menu_AddFile}" Click="OnAddFileClick"/>
                 <MenuItem Header="{l:T Menu_Check}" Click="OnCheckClick"/>
@@ -330,10 +332,31 @@
 
             <!-- right: preview -->
             <DockPanel x:Name="RightPanel" Grid.Column="4" Background="White">
-                <Border DockPanel.Dock="Top" BorderBrush="{StaticResource Border}" BorderThickness="0,1,0,1" Padding="8,4" Background="#FFF3F4F6">
-                    <TextBlock Text="{l:T Preview_Title}" Foreground="{StaticResource Muted}"/>
-                </Border>
-                <views:PreviewPane x:Name="Preview"/>
+                <TabControl x:Name="RightTabs" BorderThickness="0,1,0,0" Padding="0" Background="White" SelectionChanged="OnRightTabChanged">
+                    <TabItem x:Name="PreviewTab" Header="{l:T Preview_Title}">
+                        <views:PreviewPane x:Name="Preview"/>
+                    </TabItem>
+                    <TabItem x:Name="OriginalTab" Header="{l:T Original_Tab}">
+                        <DockPanel>
+                            <Border DockPanel.Dock="Top" Background="#FFF3F4F6" BorderBrush="{StaticResource Border}" BorderThickness="0,0,0,1" Padding="8,4">
+                                <DockPanel>
+                                    <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                                        <Button x:Name="PinButton" Content="{l:T Original_Pin}" Padding="6,1" Margin="4,0,0,0" Click="OnPinClick" ToolTip="{l:T Original_PinTip}"/>
+                                        <Button Content="{l:T Original_Change}" Padding="6,1" Margin="4,0,0,0" Click="OnChooseOriginalClick"/>
+                                    </StackPanel>
+                                    <TextBlock x:Name="OriginalInfo" Foreground="{StaticResource Muted}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"/>
+                                </DockPanel>
+                            </Border>
+                            <Grid>
+                                <views:PreviewPane x:Name="OriginalPreview" ForceHorizontal="True"/>
+                                <StackPanel x:Name="OriginalEmpty" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" Background="White">
+                                    <TextBlock Text="{l:T Original_Empty}" TextWrapping="Wrap" TextAlignment="Center" Foreground="{StaticResource Muted}" MaxWidth="320"/>
+                                    <Button Content="{l:T Original_Choose}" Padding="12,4" Margin="0,12,0,0" HorizontalAlignment="Center" Click="OnChooseOriginalClick"/>
+                                </StackPanel>
+                            </Grid>
+                        </DockPanel>
+                    </TabItem>
+                </TabControl>
             </DockPanel>
         </Grid>
     </DockPanel>

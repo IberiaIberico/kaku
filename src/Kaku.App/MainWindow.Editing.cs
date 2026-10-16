@@ -264,6 +264,8 @@ public partial class MainWindow
         if (saveAs)
         {
             _bookmarkStore.Move(oldPath, target);
+            _referenceStore.Move(oldPath, target);
+            _referenceStore.Save();
             _bookmarkStore.Save();
             _settings.AddRecent(target);
             _settings.Save();

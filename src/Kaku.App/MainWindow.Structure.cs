@@ -123,6 +123,7 @@ public partial class MainWindow
         if (BottomPanel.Visibility == Visibility.Visible && Search.Query != null) Search.Run();
         RefreshNotesPanel();
         ScheduleChecks();
+        OnStructureChangedForReference(change.Renamed);
         _recoveryDirty = true;
 
         // show the result

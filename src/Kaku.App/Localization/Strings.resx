@@ -457,4 +457,30 @@ Mientras tanto, el panel de problemas ya hace las comprobaciones principales del
 {0}</value></data>
   <data name="Epubcheck_Clean" xml:space="preserve"><value>epubcheck: sin errores ni avisos.</value></data>
   <data name="Epubcheck_Count" xml:space="preserve"><value>epubcheck: {0} mensajes en el panel de problemas.</value></data>
+  <data name="Original_Tab" xml:space="preserve"><value>Original</value></data>
+  <data name="Original_Pin" xml:space="preserve"><value>Emparejar…</value></data>
+  <data name="Original_PinTip" xml:space="preserve"><value>Corrige el emparejamiento: después, haz clic en el párrafo japonés que corresponde al párrafo del cursor</value></data>
+  <data name="Original_Change" xml:space="preserve"><value>Cambiar…</value></data>
+  <data name="Original_Empty" xml:space="preserve"><value>Elige el libro original (japonés) para ver cada párrafo junto a su traducción.</value></data>
+  <data name="Original_Choose" xml:space="preserve"><value>Elegir original japonés…</value></data>
+  <data name="Original_NotLinked" xml:space="preserve"><value>Sin original</value></data>
+  <data name="Original_Info" xml:space="preserve"><value>{0} · cap. {1} · párr. {2}</value></data>
+  <data name="Original_NoCounterpart" xml:space="preserve"><value>Esta página no existe en el original (por ejemplo, una página añadida o la de notas).</value></data>
+  <data name="Original_PinMode" xml:space="preserve"><value>Haz clic en el párrafo japonés que corresponde al párrafo del cursor (Esc para cancelar).</value></data>
+  <data name="Original_Pinned" xml:space="preserve"><value>Emparejado: párrafo {0} ↔ párrafo {1} del original.</value></data>
+  <data name="Original_DialogTitle" xml:space="preserve"><value>Original japonés</value></data>
+  <data name="Original_DialogHelp" xml:space="preserve"><value>Elige el EPUB original. Kaku propone los libros con la misma estructura (mismos archivos e imágenes) que encuentra junto a este libro y en las carpetas recientes. El original solo se lee, nunca se modifica.</value></data>
+  <data name="Original_Current" xml:space="preserve"><value>Original actual: {0}</value></data>
+  <data name="Original_NoneLinked" xml:space="preserve"><value>Este libro no tiene original asignado.</value></data>
+  <data name="Original_Searching" xml:space="preserve"><value>Buscando posibles originales…</value></data>
+  <data name="Original_NoCandidates" xml:space="preserve"><value>No se ha encontrado ningún candidato: usa «Buscar archivo…».</value></data>
+  <data name="Original_Found" xml:space="preserve"><value>{0} candidatos, de más a menos parecido:</value></data>
+  <data name="Original_Browse" xml:space="preserve"><value>Buscar archivo…</value></data>
+  <data name="Original_Remove" xml:space="preserve"><value>Quitar el original</value></data>
+  <data name="Original_Use" xml:space="preserve"><value>Usar este</value></data>
+  <data name="Original_MatchHigh" xml:space="preserve"><value>coincide</value></data>
+  <data name="Original_MatchMedium" xml:space="preserve"><value>parecido</value></data>
+  <data name="Original_MatchLow" xml:space="preserve"><value>poco parecido</value></data>
+  <data name="Menu_Original" xml:space="preserve"><value>_Original japonés…</value></data>
+  <data name="Menu_ClearPins" xml:space="preserve"><value>Quitar emparejamientos manuales del capítulo</value></data>
 </root>

@@ -33,6 +33,30 @@ public sealed class PreviewPane : Grid
     private int _pendingBlock = -1;
     private bool _ready;
     private (Chapter Chapter, int Block)? _queued;
+    private string _emptyText = "";
+
+    /// <summary>Force horizontal writing (used for the Japanese original).</summary>
+    public bool ForceHorizontal { get; set; }
+
+    /// <summary>Text shown while there is nothing to preview.</summary>
+    public string EmptyText
+    {
+        get => _emptyText;
+        set
+        {
+            _emptyText = value;
+            if (_book == null) _message.Text = value;
+        }
+    }
+
+    /// <summary>Shows the message instead of a page (no counterpart in the original, for example).</summary>
+    public void ShowMessage(string text)
+    {
+        _currentPath = null;
+        _web.Visibility = Visibility.Hidden;
+        _message.Visibility = Visibility.Visible;
+        _message.Text = text;
+    }
 
     public PreviewPane()
     {
@@ -40,6 +64,7 @@ public sealed class PreviewPane : Grid
         Children.Add(_message);
         _message.Text = T.Get("Preview_Empty");
         _web.Visibility = Visibility.Hidden;
+        _emptyText = _message.Text;
         Loaded += async (_, _) => await InitAsync();
     }
 
@@ -94,7 +119,7 @@ public sealed class PreviewPane : Grid
         {
             _web.Visibility = Visibility.Hidden;
             _message.Visibility = Visibility.Visible;
-            _message.Text = T.Get("Preview_Empty");
+            _message.Text = _emptyText;
             if (_ready) _web.CoreWebView2.Navigate("about:blank");
         }
     }
@@ -198,9 +223,11 @@ public sealed class PreviewPane : Grid
         if (path == PreviewBuilder.ScriptPath || path == PreviewBuilder.StylePath)
         {
             var name = path == PreviewBuilder.ScriptPath ? "Kaku.preview.js" : "Kaku.preview.css";
-            using var s = typeof(PreviewPane).Assembly.GetManifestResourceStream(name)!;
             using var ms = new MemoryStream();
-            s.CopyTo(ms);
+            using (var s = typeof(PreviewPane).Assembly.GetManifestResourceStream(name)!) s.CopyTo(ms);
+            // the stylesheet is loaded after the book's own CSS, so it can override the writing mode
+            if (path == PreviewBuilder.StylePath && ForceHorizontal)
+                using (var h = typeof(PreviewPane).Assembly.GetManifestResourceStream("Kaku.horizontal.css")!) h.CopyTo(ms);
             data = ms.ToArray();
             mime = path == PreviewBuilder.ScriptPath ? "text/javascript" : "text/css";
         }

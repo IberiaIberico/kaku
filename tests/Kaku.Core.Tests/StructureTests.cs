@@ -346,6 +346,7 @@ public class StructureTests(ITestOutputHelper output)
             int baseline = BookCheck.Run(book).Count(p => p.Kind != ProblemKind.Unused);
             var s = new BookStructure(book);
             var foreign = s.Notes().Foreign.Count;
+            int notesBefore = s.Notes().Notes.Count; // books edited with Kaku may already have notes
             var c = book.Chapters.Where(x => x.WordCount > 500 && x.ParseError == null).MaxBy(x => x.WordCount)!;
             var b = c.Blocks.FindIndex(x => x.WordCount > 10 && !x.IsAnonymous);
             var words = book.TotalWords;
@@ -356,9 +357,9 @@ public class StructureTests(ITestOutputHelper output)
             s.SetNoteSettings(Kaku.Core.Notes.NotePlacement.NotesPage, Kaku.Core.Notes.NoteMarkerStyle.Numbers);
             int after = BookCheck.Run(book).Count(p => p.Kind != ProblemKind.Unused);
             output.WriteLine($"{Path.GetFileName(path)}: foreign notes {foreign}, problems {baseline} → {after}");
-            Assert.Equal(2, s.Notes().Notes.Count);
+            Assert.Equal(notesBefore + 2, s.Notes().Notes.Count);
             Assert.True(after <= baseline, string.Join("\n", BookCheck.Run(book).Take(5)));
-            Assert.Equal(words + 1, book.TotalWords); // + the "Notas" heading
+            Assert.Equal(words + (notesBefore == 0 ? 1 : 0), book.TotalWords); // + the "Notas" heading, if the page is new
         }
     }
 

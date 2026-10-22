@@ -67,6 +67,7 @@ public partial class MainWindow : Window
                 e.Cancel = true;
                 return;
             }
+            SavePosition();
             SaveWindowSettings();
         };
         InitEditing();
@@ -84,6 +85,7 @@ public partial class MainWindow : Window
         InitNotes();
         InitProblems();
         InitReference();
+        InitSymbolsAndPosition();
         if (_settings.ShowBottomPanel) Loaded += (_, _) => SetBottomPanel(true);
         UpdateStatus();
     }
@@ -167,9 +169,20 @@ public partial class MainWindow : Window
         UpdateStructureMenus();
 
         // open the first chapter with real text (skips cover / image pages)
-        var first = book.Chapters.FirstOrDefault(c => c.WordCount > 50) ?? book.Chapters.FirstOrDefault();
-        if (first != null) OpenChapter(first.Index, pin: false, location: null, focus: true);
+        var status = StatusText.Text;
+        if (LastPositionFor(book) is { } last)
+        {
+            status = StatusText.Text;
+            OpenChapter(last.Chapter, pin: false, location: last, focus: true);
+        }
+        else
+        {
+            // first chapter with real text (skips cover / image pages)
+            var first = book.Chapters.FirstOrDefault(c => c.WordCount > 50) ?? book.Chapters.FirstOrDefault();
+            if (first != null) OpenChapter(first.Index, pin: false, location: null, focus: true);
+        }
         UpdateStatus();
+        if (_openedPosition != null) StatusText.Text = status;
     }
 
     /// <summary>(Re)creates the chapter browser rows; expanded groups stay expanded.</summary>
@@ -196,6 +209,9 @@ public partial class MainWindow : Window
 
     private void CloseBook()
     {
+        SavePosition();
+        _openedPosition = null;
+        _lastSavedPositionKey = null;
         foreach (var t in _tabs.ToList()) CloseTab(t);
         _book = null;
         _chapterItems.Clear();
@@ -238,7 +254,9 @@ public partial class MainWindow : Window
         RecentMenu.Items.Clear();
         foreach (var path in _settings.RecentFiles)
         {
-            var item = new MenuItem { Header = Path.GetFileName(path).Replace("_", "__"), ToolTip = path };
+            var label = Path.GetFileName(path).Replace("_", "__");
+            if (PositionLabel(path) is { } where) label += "   ·   " + where;
+            var item = new MenuItem { Header = label, ToolTip = path };
             item.Click += async (_, _) => await OpenBookAsync(path);
             RecentMenu.Items.Add(item);
         }

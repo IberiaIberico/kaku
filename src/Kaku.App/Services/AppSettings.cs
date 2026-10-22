@@ -32,6 +32,7 @@ public sealed class AppSettings
     public List<SavedSearch> SavedSearches { get; set; } = new();
     public bool SpellCheck { get; set; } = true;
     public string? EpubcheckJar { get; set; }
+    public List<string> RecentSymbols { get; set; } = new();
 
     public static AppSettings Load()
     {

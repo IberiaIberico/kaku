@@ -767,6 +767,21 @@ public sealed class ChapterEditorView : DockPanel
     }
 
     /// <summary>Ctrl+B / Ctrl+I on the selection (within one paragraph).</summary>
+    /// <summary>Types text at the caret (replacing the selection), in whichever mode is active. False if not possible here.</summary>
+    public bool InsertText(string text)
+    {
+        var ed = ActiveEditor;
+        if (!IsCodeMode)
+        {
+            if (IsMultiLineSelection(Prose)) DeleteSelection();
+            if (!Prose.TextArea.ReadOnlySectionProvider.CanInsert(Prose.CaretOffset)) return false;
+        }
+        if (ed.TextArea.Selection.IsEmpty) ed.Document.Insert(ed.CaretOffset, text);
+        else ed.TextArea.Selection.ReplaceSelectionWithText(text);
+        ed.Focus();
+        return true;
+    }
+
     public void ToggleFormat(SpanKind kind)
     {
         if (IsCodeMode) return;

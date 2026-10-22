@@ -483,4 +483,23 @@ Mientras tanto, el panel de problemas ya hace las comprobaciones principales del
   <data name="Original_MatchLow" xml:space="preserve"><value>poco parecido</value></data>
   <data name="Menu_Original" xml:space="preserve"><value>_Original japonés…</value></data>
   <data name="Menu_ClearPins" xml:space="preserve"><value>Quitar emparejamientos manuales del capítulo</value></data>
+  <data name="Bottom_Symbols" xml:space="preserve"><value>Símbolos</value></data>
+  <data name="Menu_SymbolsPanel" xml:space="preserve"><value>Panel de _símbolos</value></data>
+  <data name="Menu_LastPosition" xml:space="preserve"><value>Volver a la _última posición</value></data>
+  <data name="Symbols_Help" xml:space="preserve"><value>Clic: insertar en el cursor · Clic derecho: copiar</value></data>
+  <data name="Symbols_Used" xml:space="preserve"><value>Más usados en este libro</value></data>
+  <data name="Symbols_Recent" xml:space="preserve"><value>Recientes</value></data>
+  <data name="Symbols_Spanish" xml:space="preserve"><value>Puntuación española</value></data>
+  <data name="Symbols_Macrons" xml:space="preserve"><value>Japonés romanizado (vocales largas)</value></data>
+  <data name="Symbols_Japanese" xml:space="preserve"><value>Signos japoneses</value></data>
+  <data name="Symbols_Spaces" xml:space="preserve"><value>Espacios especiales</value></data>
+  <data name="Symbols_Other" xml:space="preserve"><value>Otros</value></data>
+  <data name="Symbols_Count" xml:space="preserve"><value>{0} veces en el libro</value></data>
+  <data name="Symbols_Tip" xml:space="preserve"><value>Clic para insertar · clic derecho para copiar</value></data>
+  <data name="Symbols_Copied" xml:space="preserve"><value>Copiado: {0}</value></data>
+  <data name="Symbols_NoEditor" xml:space="preserve"><value>Abre un capítulo (o un archivo CSS) y pon el cursor donde quieras insertar el símbolo.</value></data>
+  <data name="Position_Restored" xml:space="preserve"><value>Continuando donde lo dejaste: cap. {0} «{1}», párr. {2}.</value></data>
+  <data name="Position_Approx" xml:space="preserve"><value>El libro cambió desde la última vez: posición aproximada, cap. {0} «{1}», párr. {2}.</value></data>
+  <data name="Position_None" xml:space="preserve"><value>No hay una posición guardada de una sesión anterior.</value></data>
+  <data name="Position_Label" xml:space="preserve"><value>{0} %</value></data>
 </root>

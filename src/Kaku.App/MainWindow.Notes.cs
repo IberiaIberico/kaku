@@ -67,6 +67,7 @@ public partial class MainWindow
         if (e.OriginalSource != BottomTabs) return;
         if (BottomTabs.SelectedItem == NotesTab) NotesView.Load(_book);
         else if (BottomTabs.SelectedItem == ProblemsTab) _ = RunChecksAsync();
+        else if (BottomTabs.SelectedItem == SymbolsTab) SymbolsView.SetBook(_book); // counts are refreshed when shown
     }
 
     private void OnNotesPanelClick(object sender, RoutedEventArgs e) => ShowNotesPanel();

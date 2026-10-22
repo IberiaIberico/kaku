@@ -153,6 +153,7 @@
                 <MenuItem Header="{l:T Menu_Palette}" InputGestureText="Ctrl+P" Click="OnPaletteClick"/>
                 <MenuItem Header="{l:T Menu_GoTo}" InputGestureText="Ctrl+G" Click="OnGoToClick"/>
                 <Separator/>
+                <MenuItem Header="{l:T Menu_LastPosition}" Click="OnLastPositionClick"/>
                 <MenuItem Header="{l:T Menu_Back}" InputGestureText="Alt+←" Click="OnBackClick"/>
                 <MenuItem Header="{l:T Menu_Forward}" InputGestureText="Alt+→" Click="OnForwardClick"/>
                 <Separator/>
@@ -189,6 +190,7 @@
                 <MenuItem Header="{l:T Menu_ToggleBottom}" InputGestureText="Ctrl+J" Click="OnToggleBottomClick"/>
                 <MenuItem Header="{l:T Menu_NotesPanel}" InputGestureText="Ctrl+Mayús+N" Click="OnNotesPanelClick"/>
                 <MenuItem Header="{l:T Menu_ProblemsPanel}" InputGestureText="Ctrl+Mayús+M" Click="OnProblemsPanelClick"/>
+                <MenuItem Header="{l:T Menu_SymbolsPanel}" Click="OnSymbolsPanelClick"/>
                 <Separator/>
                 <MenuItem x:Name="ShowLeftMenu" Header="{l:T Menu_ShowLeft}" IsCheckable="True" IsChecked="True" Click="OnPanelsMenuClick" InputGestureText="Ctrl+Alt+B"/>
                 <MenuItem x:Name="ShowPreviewMenu" Header="{l:T Menu_ShowPreview}" IsCheckable="True" IsChecked="True" Click="OnPanelsMenuClick" InputGestureText="Ctrl+Alt+P"/>
@@ -321,6 +323,9 @@
                         </TabItem>
                         <TabItem x:Name="ProblemsTab" Header="{l:T Bottom_Problems}">
                             <views:ProblemsPanel x:Name="Problems"/>
+                        </TabItem>
+                        <TabItem x:Name="SymbolsTab" Header="{l:T Bottom_Symbols}">
+                            <views:SymbolsPanel x:Name="SymbolsView"/>
                         </TabItem>
                     </TabControl>
                     <Button Content="×" Padding="6,0" BorderThickness="0" Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Top"

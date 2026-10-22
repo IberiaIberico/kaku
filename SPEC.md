@@ -390,6 +390,16 @@ kaku/
 
 ---
 
+### Additions after v1.1 (branch `feature/simbolos-y-posicion`)
+- **Símbolos tab** in the bottom panel: the symbols the book uses most (with counts), recent ones, and fixed
+  groups (Spanish punctuation, romanized Japanese macrons, Japanese marks, special spaces, others).
+  Click inserts at the cursor of the chapter (or CSS) in front; right-click copies. Ver → Panel de símbolos.
+- **Last reading position**: saved in `%APPDATA%\Kaku\positions.json` (never in the EPUB) every 10 s and on
+  close; a book always opens there. Found again by the text around the cursor if the book changed (moved
+  paragraph, split chapter, edited paragraph), else by percentage. Ir → «Volver a la última posición»; the
+  recent books menu shows the saved %.
+- Fix: a clean close now also deletes an outdated crash-recovery copy (edits that were all undone).
+
 ## 9. Decisions log
 | # | Topic | Decision |
 |---|---|---|

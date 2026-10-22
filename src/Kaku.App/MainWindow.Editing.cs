@@ -265,6 +265,8 @@ public partial class MainWindow
         {
             _bookmarkStore.Move(oldPath, target);
             _referenceStore.Move(oldPath, target);
+            _positionStore.Move(oldPath, target);
+            _positionStore.Save();
             _referenceStore.Save();
             _bookmarkStore.Save();
             _settings.AddRecent(target);
@@ -283,7 +285,12 @@ public partial class MainWindow
     {
         if (_book == null) return true;
         FlushAllEditors();
-        if (!_book.IsModified) return true;
+        if (!_book.IsModified)
+        {
+            // nothing unsaved (for example, every edit was undone): an older recovery copy must not come back
+            DeleteRecovery(_book.FilePath);
+            return true;
+        }
         switch (MessageBox.Show(this, T.F("Confirm_SaveChanges", _book.Title), "Kaku", MessageBoxButton.YesNoCancel, MessageBoxImage.Question))
         {
             case MessageBoxResult.Yes:

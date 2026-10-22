@@ -13,3 +13,6 @@ TestResults/
 
 # Books are never part of the repository
 *.epub
+
+# Tooling
+.serena/

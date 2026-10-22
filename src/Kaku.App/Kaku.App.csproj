@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -9,7 +9,7 @@
     <RootNamespace>Kaku.App</RootNamespace>
     <AssemblyName>Kaku</AssemblyName>
     <Product>Kaku</Product>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <ApplicationIcon>Assets\kaku.ico</ApplicationIcon>
     <NeutralLanguage>es</NeutralLanguage>
     <SatelliteResourceLanguages>es</SatelliteResourceLanguages>

@@ -14,6 +14,7 @@ Nació como apoyo para revisar novelas japonesas traducidas al español, pero fu
 
 ## Índice
 
+- [Descargar](#descargar)
 - [Características](#características)
 - [Requisitos](#requisitos)
 - [Compilar el ejecutable](#compilar-el-ejecutable)
@@ -23,6 +24,14 @@ Nació como apoyo para revisar novelas japonesas traducidas al español, pero fu
 - [Pruebas](#pruebas)
 - [Licencia](#licencia)
 - [Licencias de terceros](#licencias-de-terceros)
+
+---
+
+## Descargar
+
+Descarga **`Kaku.exe`** de la [última versión](https://github.com/IberiaIberico/kaku/releases/latest) y ejecútalo: no hace falta instalar nada (ver [requisitos](#para-usar-kaku)). Como el ejecutable no está firmado, Windows SmartScreen puede avisar la primera vez: «Más información → Ejecutar de todas formas».
+
+Para compilarlo tú mismo, ver [Compilar el ejecutable](#compilar-el-ejecutable).
 
 ---
 
@@ -36,6 +45,7 @@ Nació como apoyo para revisar novelas japonesas traducidas al español, pero fu
 - Los cambios tocan **solo los elementos editados**: el resto del archivo queda idéntico byte a byte.
 - **Deshacer/rehacer** por capítulo (`Ctrl+Z` / `Ctrl+Y`), común a los dos modos.
 - **Vista previa en vivo** (WebView2/Edge): el capítulo se ve como en un lector, sigue al cursor, y al hacer clic en un párrafo de la vista previa el editor salta a él.
+- **Tema claro u oscuro** (`Ver → Tema`), o el mismo que Windows. En el oscuro, la vista previa muestra el libro en modo noche.
 
 ### Navegación
 - **Navegador de capítulos en árbol**: los archivos que continúan un capítulo se agrupan bajo él; muestra posición (%), palabras, notas, marcadores y cambios sin guardar.
@@ -146,7 +156,7 @@ Kaku no necesita configuración inicial. Guarda sus datos en estas carpetas:
 
 | Ruta | Contenido |
 |---|---|
-| `%APPDATA%\Kaku\settings.json` | Libros recientes, tamaño de la ventana y paneles, búsquedas guardadas, ortografía activada, ruta de epubcheck |
+| `%APPDATA%\Kaku\settings.json` | Libros recientes, tamaño de la ventana y paneles, búsquedas guardadas, ortografía activada, tema, ruta de epubcheck |
 | `%APPDATA%\Kaku\bookmarks.json` | Marcadores de cada libro |
 | `%APPDATA%\Kaku\diccionario-personal.txt` | Diccionario personal (una palabra por línea; también desde `Editar → Diccionario personal…`) |
 | `%APPDATA%\Kaku\error.log` | Registro de errores inesperados |

@@ -4,9 +4,10 @@
         xmlns:l="clr-namespace:Kaku.App.Localization"
         xmlns:views="clr-namespace:Kaku.App.Views"
         Title="{l:T Toc_Title}" Width="760" Height="600" MinWidth="520" MinHeight="360"
-        ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+        ShowInTaskbar="False" WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource PanelBg}" Foreground="{DynamicResource Text}">
     <DockPanel Margin="12">
-        <TextBlock DockPanel.Dock="Top" Text="{l:T Toc_Help}" TextWrapping="Wrap" Foreground="#FF6B7280" Margin="0,0,0,8"/>
+        <TextBlock DockPanel.Dock="Top" Text="{l:T Toc_Help}" TextWrapping="Wrap" Foreground="{DynamicResource Muted}" Margin="0,0,0,8"/>
         <StackPanel DockPanel.Dock="Right" Margin="10,0,0,0" Width="190">
             <Button Content="{l:T Toc_Up}" Click="OnUp" Margin="0,0,0,4" Padding="6,3"/>
             <Button Content="{l:T Toc_Down}" Click="OnDown" Margin="0,0,0,4" Padding="6,3"/>
@@ -25,7 +26,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="{x:Type views:TocRow}">
                     <DockPanel Margin="{Binding Indent}">
-                        <TextBlock DockPanel.Dock="Right" Text="{Binding TargetText}" Foreground="#FF6B7280" FontSize="11" Margin="8,0,0,0"
+                        <TextBlock DockPanel.Dock="Right" Text="{Binding TargetText}" Foreground="{DynamicResource Muted}" FontSize="11" Margin="8,0,0,0"
                                    VerticalAlignment="Center" MaxWidth="240" TextTrimming="CharacterEllipsis" ToolTip="{Binding TargetText}"/>
                         <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0,0,0,1" Padding="2,1" Background="Transparent"/>
                     </DockPanel>

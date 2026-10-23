@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:l="clr-namespace:Kaku.App.Localization"
         Title="{l:T Original_DialogTitle}" Width="720" Height="440" MinWidth="480" MinHeight="300"
-        ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+        ShowInTaskbar="False" WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource PanelBg}" Foreground="{DynamicResource Text}">
     <DockPanel Margin="12">
-        <TextBlock DockPanel.Dock="Top" Text="{l:T Original_DialogHelp}" TextWrapping="Wrap" Foreground="#FF6B7280" Margin="0,0,0,8"/>
+        <TextBlock DockPanel.Dock="Top" Text="{l:T Original_DialogHelp}" TextWrapping="Wrap" Foreground="{DynamicResource Muted}" Margin="0,0,0,8"/>
         <TextBlock x:Name="CurrentText" DockPanel.Dock="Top" TextWrapping="Wrap" Margin="0,0,0,8" FontWeight="SemiBold"/>
         <DockPanel DockPanel.Dock="Bottom" Margin="0,10,0,0">
             <StackPanel Orientation="Horizontal">
@@ -17,7 +18,7 @@
                 <Button Content="{l:T Common_Cancel}" MinWidth="90" Padding="10,3" Margin="8,0,0,0" IsCancel="True"/>
             </StackPanel>
         </DockPanel>
-        <TextBlock x:Name="SearchingText" DockPanel.Dock="Top" Text="{l:T Original_Searching}" Foreground="#FF6B7280" Margin="0,0,0,4"/>
+        <TextBlock x:Name="SearchingText" DockPanel.Dock="Top" Text="{l:T Original_Searching}" Foreground="{DynamicResource Muted}" Margin="0,0,0,4"/>
         <ListBox x:Name="List" HorizontalContentAlignment="Stretch" MouseDoubleClick="OnOk" SelectionChanged="OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -25,7 +26,7 @@
                         <TextBlock DockPanel.Dock="Right" Text="{Binding MatchText}" Foreground="{Binding MatchBrush}" FontWeight="SemiBold" Margin="10,0,0,0"/>
                         <StackPanel>
                             <TextBlock Text="{Binding Title}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"/>
-                            <TextBlock Text="{Binding File}" Foreground="#FF6B7280" FontSize="11" TextTrimming="CharacterEllipsis" ToolTip="{Binding Path}"/>
+                            <TextBlock Text="{Binding File}" Foreground="{DynamicResource Muted}" FontSize="11" TextTrimming="CharacterEllipsis" ToolTip="{Binding Path}"/>
                         </StackPanel>
                     </DockPanel>
                 </DataTemplate>

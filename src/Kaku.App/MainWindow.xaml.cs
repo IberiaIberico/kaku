@@ -53,6 +53,7 @@ public partial class MainWindow : Window
 
     public MainWindow()
     {
+        Theme.Apply(_settings.Theme);
         InitializeComponent();
         RestoreWindowSettings();
         RebuildRecentMenu();
@@ -86,6 +87,7 @@ public partial class MainWindow : Window
         InitProblems();
         InitReference();
         InitSymbolsAndPosition();
+        InitTheme();
         if (_settings.ShowBottomPanel) Loaded += (_, _) => SetBottomPanel(true);
         UpdateStatus();
     }

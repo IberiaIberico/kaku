@@ -4,6 +4,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using Kaku.App.Editor;
 using Kaku.App.Localization;
+using Kaku.App.Services;
 using Kaku.Core;
 using Kaku.Core.Epub;
 using Kaku.Core.Structure;
@@ -20,7 +21,7 @@ public sealed class GalleryItem
     public string InfoText { get; init; } = "";
     public List<LinkRef> Usages { get; init; } = new();
     public string UsageText => Usages.Count == 0 ? T.Get("Gallery_Unused") : T.F("Gallery_UsedIn", Usages.Select(u => u.Source).Distinct().Count());
-    public Brush UsageBrush => Usages.Count == 0 ? Brushes.DarkGoldenrod : Brushes.Gray;
+    public Brush UsageBrush => Usages.Count == 0 ? Theme.Brush("Caution") : Theme.Brush("Faint");
 }
 
 public enum GalleryAction { Add, Insert, Replace, Cover, Delete }

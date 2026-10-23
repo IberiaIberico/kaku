@@ -3,6 +3,7 @@
   var webview = window.chrome && window.chrome.webview;
   if (!webview) return;
   var post = function (m) { webview.postMessage(m); };
+  if (window.kakuDark) document.documentElement.classList.add('kaku-dark'); // set by the host, see PreviewPane
   var current = null;
 
   function block(i) { return document.querySelector('[data-kaku-b="' + i + '"]'); }
@@ -40,6 +41,7 @@
     var m = e.data;
     if (!m) return;
     if (m.type === 'scrollTo') mark(m.index, true);
+    if (m.type === 'theme') document.documentElement.classList.toggle('kaku-dark', m.dark);
     if (m.type === 'replace') {
       var el = block(m.index);
       if (el) {

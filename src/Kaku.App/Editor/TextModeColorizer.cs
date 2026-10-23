@@ -2,6 +2,7 @@ using System.Windows;
 using System.Windows.Media;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Rendering;
+using Kaku.App.Services;
 using Kaku.Core;
 using Kaku.Core.Text;
 
@@ -13,19 +14,13 @@ namespace Kaku.App.Editor;
 /// </summary>
 public sealed class TextModeColorizer(Chapter chapter) : DocumentColorizingTransformer
 {
-    private static readonly Brush HeadingBrush = Freeze(new SolidColorBrush(Color.FromRgb(0x1F, 0x3A, 0x5F)));
-    private static readonly Brush NoteBrush = Freeze(new SolidColorBrush(Color.FromRgb(0x6B, 0x6B, 0x6B)));
-    private static readonly Brush LinkBrush = Freeze(new SolidColorBrush(Color.FromRgb(0x1A, 0x5F, 0xB4)));
-    private static readonly Brush RubyBrush = Freeze(new SolidColorBrush(Color.FromRgb(0x8A, 0x4B, 0x00)));
-    private static readonly Brush ChipForeground = Freeze(new SolidColorBrush(Color.FromRgb(0x55, 0x5B, 0x66)));
-    private static readonly Brush ChipBackground = Freeze(new SolidColorBrush(Color.FromRgb(0xE6, 0xE9, 0xEF)));
-    private static readonly Brush NoteRefBackground = Freeze(new SolidColorBrush(Color.FromRgb(0xDD, 0xEA, 0xFB)));
-
-    private static Brush Freeze(Brush b)
-    {
-        b.Freeze();
-        return b;
-    }
+    private static Brush HeadingBrush => Theme.Brush("Editor.Heading");
+    private static Brush NoteBrush => Theme.Brush("Editor.Note");
+    private static Brush LinkBrush => Theme.Brush("Editor.Link");
+    private static Brush RubyBrush => Theme.Brush("Editor.Ruby");
+    private static Brush ChipForeground => Theme.Brush("Editor.ChipFg");
+    private static Brush ChipBackground => Theme.Brush("Editor.ChipBg");
+    private static Brush NoteRefBackground => Theme.Brush("Editor.NoteRefBg");
 
     protected override void ColorizeLine(DocumentLine line)
     {
@@ -102,11 +97,21 @@ public sealed class TextModeColorizer(Chapter chapter) : DocumentColorizingTrans
         }
     }
 
-    private static readonly TextDecorationCollection DottedUnderline = CreateDotted();
+    private static (Brush Brush, TextDecorationCollection Decorations)? _dotted;
 
-    private static TextDecorationCollection CreateDotted()
+    private static TextDecorationCollection DottedUnderline
     {
-        var pen = new Pen(RubyBrush, 1) { DashStyle = DashStyles.Dot };
+        get
+        {
+            var brush = RubyBrush;
+            if (_dotted is not { } d || d.Brush != brush) _dotted = d = (brush, CreateDotted(brush));
+            return d.Decorations;
+        }
+    }
+
+    private static TextDecorationCollection CreateDotted(Brush brush)
+    {
+        var pen = new Pen(brush, 1) { DashStyle = DashStyles.Dot };
         pen.Freeze();
         var c = new TextDecorationCollection { new TextDecoration(TextDecorationLocation.Underline, pen, 1, TextDecorationUnit.FontRecommended, TextDecorationUnit.Pixel) };
         c.Freeze();

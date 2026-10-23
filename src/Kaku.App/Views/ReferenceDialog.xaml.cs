@@ -2,6 +2,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Media;
 using Kaku.App.Localization;
+using Kaku.App.Services;
 using Kaku.Core;
 using Kaku.Core.Reference;
 using Microsoft.Win32;
@@ -18,7 +19,7 @@ public partial class ReferenceDialog : Window
         public string Title => Candidate.Title.Length > 0 ? Candidate.Title : System.IO.Path.GetFileNameWithoutExtension(Candidate.Path);
         // file paths count up to 1, identical images up to 2, the original language 0.5
         public string MatchText => Candidate.Score >= 2.5 ? T.Get("Original_MatchHigh") : Candidate.Score >= 1.2 ? T.Get("Original_MatchMedium") : T.Get("Original_MatchLow");
-        public Brush MatchBrush => Candidate.Score >= 2.5 ? Brushes.ForestGreen : Candidate.Score >= 1.2 ? Brushes.DarkGoldenrod : Brushes.Gray;
+        public Brush MatchBrush => Candidate.Score >= 2.5 ? Theme.Brush("ScoreGood") : Candidate.Score >= 1.2 ? Theme.Brush("Caution") : Theme.Brush("Faint");
     }
 
     public ReferenceDialog(Window owner, Book book, string? current, IReadOnlyList<string> folders)

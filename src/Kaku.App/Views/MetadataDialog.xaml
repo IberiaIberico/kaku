@@ -3,11 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:l="clr-namespace:Kaku.App.Localization"
         Title="{l:T Meta_Title}" Width="720" SizeToContent="Height" ResizeMode="NoResize"
-        ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+        ShowInTaskbar="False" WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource PanelBg}" Foreground="{DynamicResource Text}">
     <DockPanel Margin="14">
         <StackPanel DockPanel.Dock="Right" Width="200" Margin="16,0,0,0">
             <TextBlock Text="{l:T Meta_Cover}"/>
-            <Border BorderBrush="#FFD1D5DB" BorderThickness="1" Height="260" Margin="0,4,0,6" Background="#FFF3F4F6">
+            <Border BorderBrush="{DynamicResource BorderStrong}" BorderThickness="1" Height="260" Margin="0,4,0,6" Background="{DynamicResource SubtleBg}">
                 <Image x:Name="CoverImage" Stretch="Uniform"/>
             </Border>
             <ComboBox x:Name="CoverBox" SelectionChanged="OnCoverChanged" ToolTip="{l:T Meta_CoverTip}"/>
@@ -34,7 +35,7 @@
                     <Setter Property="Margin" Value="0,7,10,0"/>
                     <Setter Property="VerticalAlignment" Value="Top"/>
                 </Style>
-                <Style TargetType="TextBox">
+                <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
                     <Setter Property="Margin" Value="0,4"/>
                     <Setter Property="Padding" Value="4,3"/>
                 </Style>

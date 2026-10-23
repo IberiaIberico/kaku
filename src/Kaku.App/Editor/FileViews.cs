@@ -47,13 +47,14 @@ public static class FileViews
             bmp.EndInit();
             bmp.Freeze();
 
-            var panel = new DockPanel { Background = new SolidColorBrush(Color.FromRgb(0xF3, 0xF4, 0xF6)) };
+            var panel = new DockPanel();
+            panel.SetResourceReference(Panel.BackgroundProperty, "SubtleBg");
             var info = new TextBlock
             {
                 Text = T.F("File_ImageInfo", entry.Path, bmp.PixelWidth, bmp.PixelHeight, T.N0((entry.Data.Length + 1023) / 1024)),
                 Margin = new Thickness(10, 6, 10, 6),
-                Foreground = Brushes.DimGray,
             };
+            info.SetResourceReference(TextBlock.ForegroundProperty, "Muted");
             DockPanel.SetDock(info, Dock.Bottom);
             panel.Children.Add(info);
             var image = new Image { Source = bmp, Stretch = Stretch.Uniform, StretchDirection = StretchDirection.DownOnly, Margin = new Thickness(16) };
@@ -67,10 +68,14 @@ public static class FileViews
         }
     }
 
-    private static FrameworkElement Info(EpubEntry entry, string message) => new TextBlock
+    private static FrameworkElement Info(EpubEntry entry, string message)
     {
-        Text = $"{entry.Path}\n{T.N0(entry.Data.Length)} bytes\n\n{message}",
-        Margin = new Thickness(20),
-        Foreground = Brushes.DimGray,
-    };
+        var text = new TextBlock
+        {
+            Text = $"{entry.Path}\n{T.N0(entry.Data.Length)} bytes\n\n{message}",
+            Margin = new Thickness(20),
+        };
+        text.SetResourceReference(TextBlock.ForegroundProperty, "Muted");
+        return text;
+    }
 }

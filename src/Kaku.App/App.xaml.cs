@@ -19,6 +19,7 @@ public partial class App : Application
             new FrameworkPropertyMetadata(XmlLanguage.GetLanguage(T.Es.IetfLanguageTag)));
 
         DispatcherUnhandledException += OnUnhandledException;
+        Services.Theme.WatchSystem();
 
         var window = new MainWindow();
         MainWindow = window;

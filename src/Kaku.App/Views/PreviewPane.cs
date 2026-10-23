@@ -25,12 +25,12 @@ public sealed class PreviewPane : Grid
     private readonly TextBlock _message = new()
     {
         Margin = new Thickness(16),
-        Foreground = Brushes.DimGray,
         TextWrapping = TextWrapping.Wrap,
     };
     private Book? _book;
     private string? _currentPath;
     private int _pendingBlock = -1;
+    private string? _themeScript;
     private bool _ready;
     private (Chapter Chapter, int Block)? _queued;
     private string _emptyText = "";
@@ -62,6 +62,8 @@ public sealed class PreviewPane : Grid
     {
         Children.Add(_web);
         Children.Add(_message);
+        _message.SetResourceReference(TextBlock.ForegroundProperty, "Muted");
+        SetPageBackground();
         _message.Text = T.Get("Preview_Empty");
         _web.Visibility = Visibility.Hidden;
         _emptyText = _message.Text;
@@ -103,6 +105,7 @@ public sealed class PreviewPane : Grid
             e.Handled = true;
             OpenExternal(e.Uri);
         };
+        await SetThemeScriptAsync(core);
         _ready = true;
         if (_queued is { } q)
         {
@@ -162,6 +165,34 @@ public sealed class PreviewPane : Grid
 
     /// <summary>Records which chapter the preview shows without navigating (used when the preview navigated itself).</summary>
     public void SetCurrentPath(string path) => _currentPath = path;
+
+    /// <summary>Switches the page shown, and the pages to come, to the current theme.</summary>
+    public async void ApplyTheme()
+    {
+        SetPageBackground();
+        if (!_ready) return;
+        var core = _web.CoreWebView2;
+        await SetThemeScriptAsync(core);
+        core.PostWebMessageAsJson(JsonSerializer.Serialize(new { type = "theme", dark = Theme.IsDark }));
+    }
+
+    /// <summary>
+    /// Tells new pages the theme, and sets prefers-color-scheme to match it
+    /// (otherwise WebView2 follows Windows, and some books darken themselves).
+    /// </summary>
+    private async Task SetThemeScriptAsync(CoreWebView2 core)
+    {
+        core.Profile.PreferredColorScheme = Theme.IsDark ? CoreWebView2PreferredColorScheme.Dark : CoreWebView2PreferredColorScheme.Light;
+        if (_themeScript != null) core.RemoveScriptToExecuteOnDocumentCreated(_themeScript);
+        _themeScript = await core.AddScriptToExecuteOnDocumentCreatedAsync($"window.kakuDark = {(Theme.IsDark ? "true" : "false")};");
+    }
+
+    /// <summary>What shows before the page paints (avoids a white flash in the dark theme).</summary>
+    private void SetPageBackground()
+    {
+        var c = Theme.Color("Editor.Bg");
+        _web.DefaultBackgroundColor = System.Drawing.Color.FromArgb(c.A, c.R, c.G, c.B);
+    }
 
     public void ScrollToBlock(int block)
     {
@@ -225,9 +256,11 @@ public sealed class PreviewPane : Grid
             var name = path == PreviewBuilder.ScriptPath ? "Kaku.preview.js" : "Kaku.preview.css";
             using var ms = new MemoryStream();
             using (var s = typeof(PreviewPane).Assembly.GetManifestResourceStream(name)!) s.CopyTo(ms);
-            // the stylesheet is loaded after the book's own CSS, so it can override the writing mode
+            // the stylesheet is loaded after the book's own CSS, so it can override the writing mode and the colors
             if (path == PreviewBuilder.StylePath && ForceHorizontal)
                 using (var h = typeof(PreviewPane).Assembly.GetManifestResourceStream("Kaku.horizontal.css")!) h.CopyTo(ms);
+            if (path == PreviewBuilder.StylePath)
+                using (var d = typeof(PreviewPane).Assembly.GetManifestResourceStream("Kaku.dark.css")!) d.CopyTo(ms);
             data = ms.ToArray();
             mime = path == PreviewBuilder.ScriptPath ? "text/javascript" : "text/css";
         }

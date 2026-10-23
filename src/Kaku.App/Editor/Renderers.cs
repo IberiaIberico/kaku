@@ -2,15 +2,13 @@ using System.Windows;
 using System.Windows.Media;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Rendering;
+using Kaku.App.Services;
 
 namespace Kaku.App.Editor;
 
 /// <summary>Highlights search matches. Segments are resolved lazily (block + offset, or plain offsets).</summary>
 public sealed class SearchHighlightRenderer(Func<IEnumerable<(int Offset, int Length)>> segments) : IBackgroundRenderer
 {
-    private static readonly Brush Fill = Frozen(new SolidColorBrush(Color.FromArgb(0x70, 0xFF, 0xD3, 0x4D)));
-    private static readonly Pen Border = FrozenPen(new Pen(new SolidColorBrush(Color.FromArgb(0xB0, 0xE0, 0x9A, 0x00)), 1));
-
     public KnownLayer Layer => KnownLayer.Selection;
 
     public void Draw(TextView textView, DrawingContext dc)
@@ -27,39 +25,20 @@ public sealed class SearchHighlightRenderer(Func<IEnumerable<(int Offset, int Le
             builder.CloseFigure();
             any = true;
         }
-        if (any && builder.CreateGeometry() is { } g) dc.DrawGeometry(Fill, Border, g);
+        if (any && builder.CreateGeometry() is { } g) dc.DrawGeometry(Theme.Brush("Editor.SearchFill"), new Pen(Theme.Brush("Editor.SearchBorder"), 1), g);
     }
 
-    internal static Brush Frozen(Brush b)
-    {
-        b.Freeze();
-        return b;
-    }
-
-    private static Pen FrozenPen(Pen p)
-    {
-        p.Freeze();
-        return p;
-    }
 }
 
 /// <summary>Red wavy underline under misspelled words, for the visible lines only (cached per line text).</summary>
 public sealed class SpellingRenderer(Func<int, string?> wordTextOfLine) : IBackgroundRenderer
 {
-    private static readonly Pen Wave = CreatePen();
     private readonly Dictionary<string, List<Kaku.Core.Checks.Misspelling>> _cache = new(StringComparer.Ordinal);
     private int _version = -1;
 
     public bool Enabled { get; set; } = true;
 
     public KnownLayer Layer => KnownLayer.Selection;
-
-    private static Pen CreatePen()
-    {
-        var p = new Pen(new SolidColorBrush(Color.FromRgb(0xDC, 0x26, 0x26)), 1.1);
-        p.Freeze();
-        return p;
-    }
 
     /// <summary>Misspellings of a line (null if the checker is not ready).</summary>
     public List<Kaku.Core.Checks.Misspelling>? For(int lineNumber)
@@ -82,6 +61,8 @@ public sealed class SpellingRenderer(Func<int, string?> wordTextOfLine) : IBackg
     public void Draw(TextView textView, DrawingContext dc)
     {
         if (!Enabled || !textView.VisualLinesValid) return;
+        var wave = new Pen(Theme.Brush("Editor.Spelling"), 1.1);
+        wave.Freeze();
         foreach (var vl in textView.VisualLines)
         {
             var line = vl.FirstDocumentLine;
@@ -106,7 +87,7 @@ public sealed class SpellingRenderer(Func<int, string?> wordTextOfLine) : IBackg
                         }
                     }
                     g.Freeze();
-                    dc.DrawGeometry(null, Wave, g);
+                    dc.DrawGeometry(null, wave, g);
                 }
             }
         }
@@ -116,21 +97,19 @@ public sealed class SpellingRenderer(Func<int, string?> wordTextOfLine) : IBackg
 /// <summary>Bookmarked paragraphs: a bar at the left edge and a light tint.</summary>
 public sealed class BookmarkRenderer(Func<ICollection<int>> lineNumbers) : IBackgroundRenderer
 {
-    private static readonly Brush Bar = SearchHighlightRenderer.Frozen(new SolidColorBrush(Color.FromRgb(0x25, 0x63, 0xEB)));
-    private static readonly Brush Tint = SearchHighlightRenderer.Frozen(new SolidColorBrush(Color.FromArgb(0x16, 0x25, 0x63, 0xEB)));
-
     public KnownLayer Layer => KnownLayer.Background;
 
     public void Draw(TextView textView, DrawingContext dc)
     {
         var lines = lineNumbers();
         if (lines.Count == 0 || !textView.VisualLinesValid) return;
+        Brush bar = Theme.Brush("Editor.BookmarkBar"), tint = Theme.Brush("Editor.BookmarkTint");
         foreach (var vl in textView.VisualLines)
         {
             if (!lines.Contains(vl.FirstDocumentLine.LineNumber)) continue;
             double y = vl.VisualTop - textView.VerticalOffset;
-            dc.DrawRectangle(Tint, null, new Rect(0, y, textView.ActualWidth, vl.Height));
-            dc.DrawRectangle(Bar, null, new Rect(0, y, 4, vl.Height));
+            dc.DrawRectangle(tint, null, new Rect(0, y, textView.ActualWidth, vl.Height));
+            dc.DrawRectangle(bar, null, new Rect(0, y, 4, vl.Height));
         }
     }
 }

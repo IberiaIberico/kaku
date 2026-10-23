@@ -3,21 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:l="clr-namespace:Kaku.App.Localization"
         WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False"
-        SizeToContent="Height" Width="660" Background="White"
-        BorderBrush="#FF9AA3AF" BorderThickness="1"
+        SizeToContent="Height" Width="660" Background="{DynamicResource PanelBg}" Foreground="{DynamicResource Text}"
+        BorderBrush="{DynamicResource PopupBorder}" BorderThickness="1"
         WindowStartupLocation="Manual">
     <DockPanel Margin="8">
         <TextBox x:Name="Query" DockPanel.Dock="Top" FontSize="15" Padding="6,4"
                  TextChanged="OnQueryChanged" PreviewKeyDown="OnQueryKeyDown"/>
-        <TextBlock DockPanel.Dock="Bottom" Margin="2,6,0,0" Foreground="Gray" FontSize="11"
+        <TextBlock DockPanel.Dock="Bottom" Margin="2,6,0,0" Foreground="{DynamicResource Faint}" FontSize="11"
                    Text="{l:T Palette_Hint}"/>
         <ListBox x:Name="Results" MaxHeight="420" Margin="0,6,0,0" BorderThickness="0" HorizontalContentAlignment="Stretch"
                  MouseDoubleClick="OnResultsDoubleClick" PreviewMouseLeftButtonUp="OnResultsClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <DockPanel Margin="2,2">
-                        <TextBlock Text="{Binding Kind}" Width="78" Foreground="#FF6B7280" FontSize="11" VerticalAlignment="Center"/>
-                        <TextBlock DockPanel.Dock="Right" Text="{Binding Detail}" Foreground="#FF6B7280" FontSize="11"
+                        <TextBlock Text="{Binding Kind}" Width="78" Foreground="{DynamicResource Muted}" FontSize="11" VerticalAlignment="Center"/>
+                        <TextBlock DockPanel.Dock="Right" Text="{Binding Detail}" Foreground="{DynamicResource Muted}" FontSize="11"
                                    Margin="10,0,0,0" VerticalAlignment="Center"/>
                         <TextBlock Text="{Binding Title}" TextTrimming="CharacterEllipsis" FontSize="13"/>
                     </DockPanel>

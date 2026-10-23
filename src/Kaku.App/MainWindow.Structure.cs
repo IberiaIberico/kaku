@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using Kaku.App.Localization;
+using Kaku.App.Services;
 using Kaku.App.ViewModels;
 using Kaku.App.Views;
 using Kaku.Core;
@@ -392,7 +393,7 @@ public partial class MainWindow
         if (container != null)
         {
             _dropAfter = e.GetPosition(container).Y > container.ActualHeight / 2;
-            container.BorderBrush = Brushes.RoyalBlue;
+            container.BorderBrush = Theme.Brush("DropMarker");
             container.BorderThickness = _dropAfter ? new Thickness(0, 0, 0, 2) : new Thickness(0, 2, 0, 0);
             _dropMarker = container;
         }

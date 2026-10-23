@@ -1,0 +1,17 @@
+/* Injected by Kaku. In the dark theme (class set by preview.js) the page is shown like an e-reader's night mode;
+   images are left as they are. Always part of the stylesheet: WebView2 may cache it, so it cannot depend on the theme. */
+html.kaku-dark { color-scheme: dark; }
+html.kaku-dark, html.kaku-dark body {
+  background: #1e1f23 !important;
+  color: #dadde2 !important;
+}
+html.kaku-dark body * {
+  color: inherit !important;
+  background-color: transparent !important;
+  border-color: #4a4f57 !important;
+}
+html.kaku-dark a, html.kaku-dark a * { color: #7db2f2 !important; }
+html.kaku-dark .kaku-current {
+  background-color: rgba(240, 170, 30, 0.16) !important;
+  outline-color: rgba(240, 170, 30, 0.6) !important;
+}

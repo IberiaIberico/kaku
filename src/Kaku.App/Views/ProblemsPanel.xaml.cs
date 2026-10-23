@@ -25,9 +25,9 @@ public partial class ProblemsPanel : UserControl
 
         public Brush IconBrush => Problem.Severity switch
         {
-            Severity.Error => Brushes.Firebrick,
-            Severity.Warning => Brushes.DarkGoldenrod,
-            _ => Brushes.SteelBlue,
+            Severity.Error => Theme.Brush("Error"),
+            Severity.Warning => Theme.Brush("Caution"),
+            _ => Theme.Brush("Info"),
         };
 
         // the context with the problem highlighted

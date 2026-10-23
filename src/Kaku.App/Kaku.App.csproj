@@ -40,6 +40,7 @@
     <EmbeddedResource Include="Resources\preview.js" LogicalName="Kaku.preview.js" />
     <EmbeddedResource Include="Resources\preview.css" LogicalName="Kaku.preview.css" />
     <EmbeddedResource Include="Resources\horizontal.css" LogicalName="Kaku.horizontal.css" />
+    <EmbeddedResource Include="Resources\dark.css" LogicalName="Kaku.dark.css" />
     <EmbeddedResource Include="Resources\Dictionaries\es_ES.dic" LogicalName="Kaku.es_ES.dic" />
     <EmbeddedResource Include="Resources\Dictionaries\es_ES.aff" LogicalName="Kaku.es_ES.aff" />
     <None Include="Resources\Dictionaries\LICENSE.md" />

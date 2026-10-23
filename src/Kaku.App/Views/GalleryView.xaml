@@ -3,25 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:l="clr-namespace:Kaku.App.Localization"
              xmlns:views="clr-namespace:Kaku.App.Views"
-             Background="White">
+             Background="{DynamicResource PanelBg}">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolVis"/>
-        <Style x:Key="Bar" TargetType="Button">
-            <Setter Property="Padding" Value="8,3"/>
-            <Setter Property="Margin" Value="0,0,6,4"/>
-        </Style>
     </UserControl.Resources>
     <DockPanel>
-        <Border DockPanel.Dock="Top" Background="#FFF3F4F6" BorderBrush="#FFDDE1E6" BorderThickness="0,0,0,1" Padding="8,6">
+        <Border DockPanel.Dock="Top" Background="{DynamicResource SubtleBg}" BorderBrush="{DynamicResource Border}" BorderThickness="0,0,0,1" Padding="8,6">
             <DockPanel>
-                <TextBlock x:Name="CountText" DockPanel.Dock="Bottom" Margin="0,4,0,0" Foreground="#FF6B7280"/>
+                <TextBlock x:Name="CountText" DockPanel.Dock="Bottom" Margin="0,4,0,0" Foreground="{DynamicResource Muted}"/>
                 <WrapPanel>
-                    <Button Style="{StaticResource Bar}" Content="{l:T Gallery_Add}" Click="OnAdd"/>
-                    <Button x:Name="InsertButton" Style="{StaticResource Bar}" Content="{l:T Gallery_Insert}" Click="OnInsert" ToolTip="{l:T Gallery_InsertTip}"/>
-                    <Button x:Name="ReplaceButton" Style="{StaticResource Bar}" Content="{l:T Gallery_Replace}" Click="OnReplace"/>
-                    <Button x:Name="CoverButton" Style="{StaticResource Bar}" Content="{l:T Gallery_Cover}" Click="OnCover"/>
-                    <Button x:Name="UsagesButton" Style="{StaticResource Bar}" Content="{l:T Gallery_Usages}" Click="OnUsages"/>
-                    <Button x:Name="DeleteButton" Style="{StaticResource Bar}" Content="{l:T Gallery_Delete}" Click="OnDelete"/>
+                    <Button Style="{DynamicResource BarButton}" Content="{l:T Gallery_Add}" Click="OnAdd"/>
+                    <Button x:Name="InsertButton" Style="{DynamicResource BarButton}" Content="{l:T Gallery_Insert}" Click="OnInsert" ToolTip="{l:T Gallery_InsertTip}"/>
+                    <Button x:Name="ReplaceButton" Style="{DynamicResource BarButton}" Content="{l:T Gallery_Replace}" Click="OnReplace"/>
+                    <Button x:Name="CoverButton" Style="{DynamicResource BarButton}" Content="{l:T Gallery_Cover}" Click="OnCover"/>
+                    <Button x:Name="UsagesButton" Style="{DynamicResource BarButton}" Content="{l:T Gallery_Usages}" Click="OnUsages"/>
+                    <Button x:Name="DeleteButton" Style="{DynamicResource BarButton}" Content="{l:T Gallery_Delete}" Click="OnDelete"/>
                 </WrapPanel>
             </DockPanel>
         </Border>
@@ -36,10 +32,10 @@
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="{x:Type views:GalleryItem}">
                     <StackPanel Width="160" Margin="6" ToolTip="{Binding Path}">
-                        <Border Height="170" Background="#FFF3F4F6" BorderBrush="#FFE5E7EB" BorderThickness="1">
+                        <Border Height="170" Background="{DynamicResource SubtleBg}" BorderBrush="{DynamicResource BorderSoft}" BorderThickness="1">
                             <Grid>
                                 <Image Source="{Binding Thumbnail}" Stretch="Uniform" Margin="4"/>
-                                <TextBlock Text="{l:T Gallery_NoPreview}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray"
+                                <TextBlock Text="{l:T Gallery_NoPreview}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource Faint}"
                                            Visibility="{Binding NoPreview, Converter={StaticResource BoolVis}}"/>
                                 <Border Background="#FF2563EB" CornerRadius="2" Padding="4,1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4"
                                         Visibility="{Binding IsCover, Converter={StaticResource BoolVis}}">
@@ -48,7 +44,7 @@
                             </Grid>
                         </Border>
                         <TextBlock Text="{Binding Name}" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" Margin="0,4,0,0"/>
-                        <TextBlock Text="{Binding InfoText}" Foreground="#FF6B7280" FontSize="11"/>
+                        <TextBlock Text="{Binding InfoText}" Foreground="{DynamicResource Muted}" FontSize="11"/>
                         <TextBlock Text="{Binding UsageText}" Foreground="{Binding UsageBrush}" FontSize="11"/>
                     </StackPanel>
                 </DataTemplate>

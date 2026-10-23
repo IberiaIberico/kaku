@@ -33,6 +33,7 @@ public sealed class AppSettings
     public bool SpellCheck { get; set; } = true;
     public string? EpubcheckJar { get; set; }
     public List<string> RecentSymbols { get; set; } = new();
+    public ThemeChoice Theme { get; set; } = ThemeChoice.Light;
 
     public static AppSettings Load()
     {

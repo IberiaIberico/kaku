@@ -2,6 +2,9 @@ using System.Windows;
 using System.Windows.Media;
 using ICSharpCode.AvalonEdit;
 using ICSharpCode.AvalonEdit.Highlighting;
+using ICSharpCode.AvalonEdit.Rendering;
+using Kaku.App.Services;
+using Control = System.Windows.Controls.Control;
 
 namespace Kaku.App.Editor;
 
@@ -26,7 +29,8 @@ public static class EditorFactory
         var ed = Create();
         ed.FontFamily = CodeFont;
         ed.FontSize = 13;
-        ed.SyntaxHighlighting = HighlightingManager.Instance.GetDefinitionByExtension(HighlightingExtension(path));
+        if (HighlightingManager.Instance.GetDefinitionByExtension(HighlightingExtension(path)) is { } definition)
+            ed.TextArea.TextView.LineTransformers.Insert(0, new ThemedHighlightingColorizer(definition));
         return ed;
     }
 
@@ -54,9 +58,50 @@ public static class EditorFactory
         ed.Options.HighlightCurrentLine = true;
         ed.Options.ShowBoxForControlCharacters = true;
         ed.TextArea.SelectionCornerRadius = 0;
-        ed.TextArea.TextView.CurrentLineBackground = new SolidColorBrush(Color.FromArgb(0x22, 0xF0, 0xAA, 0x1E));
+        ed.TextArea.TextView.SetResourceReference(TextView.CurrentLineBackgroundProperty, "Editor.CurrentLine");
         ed.TextArea.TextView.CurrentLineBorder = new Pen(Brushes.Transparent, 0);
-        ed.LineNumbersForeground = new SolidColorBrush(Color.FromRgb(0xA0, 0xA6, 0xB0));
+        ed.SetResourceReference(TextEditor.LineNumbersForegroundProperty, "Editor.LineNumbers");
+        ed.SetResourceReference(Control.BackgroundProperty, "Editor.Bg");
+        ed.SetResourceReference(Control.ForegroundProperty, "Editor.Fg");
         return ed;
+    }
+}
+
+/// <summary>Syntax highlighting whose colors are lightened in the dark theme (the built-in definitions are made for white).</summary>
+public sealed class ThemedHighlightingColorizer(IHighlightingDefinition definition) : HighlightingColorizer(definition)
+{
+    private static readonly Dictionary<Color, Brush> Lightened = new();
+
+    protected override void ApplyColorToElement(VisualLineElement element, HighlightingColor color)
+    {
+        base.ApplyColorToElement(element, color);
+        if (Theme.IsDark && color.Foreground != null && element.TextRunProperties.ForegroundBrush is SolidColorBrush b)
+            element.TextRunProperties.SetForegroundBrush(Lighten(b.Color));
+    }
+
+    /// <summary>Keeps the hue, moves the lightness to the bright end: dark blue becomes light blue.</summary>
+    private static Brush Lighten(Color c)
+    {
+        if (Lightened.TryGetValue(c, out var cached)) return cached;
+        double r = c.R / 255.0, g = c.G / 255.0, bl = c.B / 255.0;
+        double max = Math.Max(r, Math.Max(g, bl)), min = Math.Min(r, Math.Min(g, bl));
+        double l = (max + min) / 2, d = max - min;
+        double s = d == 0 ? 0 : d / (1 - Math.Abs(2 * l - 1));
+        double h = d == 0 ? 0 : max == r ? ((g - bl) / d + 6) % 6 : max == g ? (bl - r) / d + 2 : (r - g) / d + 4;
+        double nl = 0.62 + (1 - l) * 0.2;
+        double chroma = (1 - Math.Abs(2 * nl - 1)) * Math.Min(s, 0.75);
+        double x = chroma * (1 - Math.Abs(h % 2 - 1)), m = nl - chroma / 2;
+        var (r1, g1, b1) = (int)h switch
+        {
+            0 => (chroma, x, 0.0),
+            1 => (x, chroma, 0.0),
+            2 => (0.0, chroma, x),
+            3 => (0.0, x, chroma),
+            4 => (x, 0.0, chroma),
+            _ => (chroma, 0.0, x),
+        };
+        var brush = new SolidColorBrush(Color.FromRgb((byte)Math.Round((r1 + m) * 255), (byte)Math.Round((g1 + m) * 255), (byte)Math.Round((b1 + m) * 255)));
+        brush.Freeze();
+        return Lightened[c] = brush;
     }
 }

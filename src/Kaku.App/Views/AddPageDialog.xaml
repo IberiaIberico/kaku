@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:l="clr-namespace:Kaku.App.Localization"
         Title="{l:T AddPage_Title}" Width="480" SizeToContent="Height" ResizeMode="NoResize"
-        ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+        ShowInTaskbar="False" WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource PanelBg}" Foreground="{DynamicResource Text}">
     <StackPanel Margin="14">
         <TextBlock Text="{l:T AddPage_Type}"/>
         <ComboBox x:Name="TypeBox" Margin="0,4,0,10" SelectionChanged="OnTypeChanged">
@@ -13,7 +14,7 @@
         </ComboBox>
         <TextBlock Text="{l:T AddPage_PageTitle}"/>
         <TextBox x:Name="TitleBox" Margin="0,4,0,10" Padding="4,3"/>
-        <TextBlock x:Name="ImportedText" Foreground="#FF15803D" TextWrapping="Wrap" Margin="0,0,0,10" Visibility="Collapsed"/>
+        <TextBlock x:Name="ImportedText" Foreground="{DynamicResource Good}" TextWrapping="Wrap" Margin="0,0,0,10" Visibility="Collapsed"/>
         <TextBlock Text="{l:T AddPage_Where}"/>
         <StackPanel Margin="0,4,0,10">
             <RadioButton x:Name="AfterRadio" Content="{l:T AddPage_After}" IsChecked="True" Margin="0,2"/>

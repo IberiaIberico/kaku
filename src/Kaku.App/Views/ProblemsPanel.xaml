@@ -2,7 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:l="clr-namespace:Kaku.App.Localization"
-             Background="White">
+             Background="{DynamicResource PanelBg}">
     <DockPanel>
         <WrapPanel DockPanel.Dock="Top" Margin="6,5,6,2">
             <ComboBox x:Name="ScopeBox" Height="24" Margin="0,0,6,4" SelectionChanged="OnScopeChanged">
@@ -16,8 +16,8 @@
             <Button x:Name="FixAllButton" Padding="8,2" Margin="0,0,10,4" Click="OnFixAll"/>
             <Button Content="{l:T Problems_Epubcheck}" Padding="8,2" Margin="0,0,4,4" Click="OnEpubcheck" ToolTip="{l:T Problems_EpubcheckTip}"/>
         </WrapPanel>
-        <TextBlock x:Name="SummaryText" DockPanel.Dock="Top" Margin="8,0,8,4" Foreground="#FF6B7280"/>
-        <ListView x:Name="List" BorderThickness="0,1,0,0" BorderBrush="#FFE5E7EB" SelectionMode="Extended"
+        <TextBlock x:Name="SummaryText" DockPanel.Dock="Top" Margin="8,0,8,4" Foreground="{DynamicResource Muted}"/>
+        <ListView x:Name="List" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderSoft}" SelectionMode="Extended"
                   MouseDoubleClick="OnDoubleClick" KeyDown="OnListKeyDown" SelectionChanged="OnSelectionChanged"
                   ContextMenuOpening="OnContextMenuOpening">
             <ListView.ContextMenu>
@@ -38,8 +38,8 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock ToolTip="{Binding Message}" TextTrimming="CharacterEllipsis">
-                                    <Run Text="{Binding Before, Mode=OneWay}" Foreground="#FF4B5563"/><Run Text="{Binding Hit, Mode=OneWay}" Background="#FFFECACA" FontWeight="SemiBold"/><Run Text="{Binding After, Mode=OneWay}" Foreground="#FF4B5563"/>
-                                    <Run Text="{Binding FixText, Mode=OneWay}" Foreground="#FF15803D"/>
+                                    <Run Text="{Binding Before, Mode=OneWay}" Foreground="{DynamicResource TextSofter}"/><Run Text="{Binding Hit, Mode=OneWay}" Background="{DynamicResource ProblemHitBg}" FontWeight="SemiBold"/><Run Text="{Binding After, Mode=OneWay}" Foreground="{DynamicResource TextSofter}"/>
+                                    <Run Text="{Binding FixText, Mode=OneWay}" Foreground="{DynamicResource Good}"/>
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

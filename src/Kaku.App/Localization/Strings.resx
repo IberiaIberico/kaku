@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
   <resheader name="version"><value>2.0</value></resheader>
@@ -502,4 +502,8 @@ Mientras tanto, el panel de problemas ya hace las comprobaciones principales del
   <data name="Position_Approx" xml:space="preserve"><value>El libro cambió desde la última vez: posición aproximada, cap. {0} «{1}», párr. {2}.</value></data>
   <data name="Position_None" xml:space="preserve"><value>No hay una posición guardada de una sesión anterior.</value></data>
   <data name="Position_Label" xml:space="preserve"><value>{0} %</value></data>
+  <data name="Menu_Theme" xml:space="preserve"><value>Te_ma</value></data>
+  <data name="Menu_ThemeLight" xml:space="preserve"><value>_Claro</value></data>
+  <data name="Menu_ThemeDark" xml:space="preserve"><value>_Oscuro</value></data>
+  <data name="Menu_ThemeSystem" xml:space="preserve"><value>Como _Windows</value></data>
 </root>

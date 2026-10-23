@@ -287,6 +287,13 @@ public sealed class ChapterEditorView : DockPanel
         }
     }
 
+    /// <summary>Repaints both editors (after a theme change).</summary>
+    public void Redraw()
+    {
+        Prose.TextArea.TextView.Redraw();
+        _code?.TextArea.TextView.Redraw();
+    }
+
     public void RedrawSpelling() => Prose.TextArea.TextView.InvalidateLayer(ICSharpCode.AvalonEdit.Rendering.KnownLayer.Selection);
 
     /// <summary>Text checked for a line: the block's word text, or the editor text while it is being typed.</summary>

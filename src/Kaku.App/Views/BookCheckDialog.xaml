@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:l="clr-namespace:Kaku.App.Localization"
         Title="{l:T Check_Title}" Width="860" Height="560" MinWidth="560" MinHeight="300"
-        ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+        ShowInTaskbar="False" WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource PanelBg}" Foreground="{DynamicResource Text}">
     <DockPanel Margin="12">
         <TextBlock x:Name="Summary" DockPanel.Dock="Top" TextWrapping="Wrap" Margin="0,0,0,8" FontWeight="SemiBold"/>
         <DockPanel DockPanel.Dock="Bottom" Margin="0,10,0,0">

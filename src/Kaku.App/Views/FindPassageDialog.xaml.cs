@@ -3,6 +3,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using Kaku.App.Localization;
+using Kaku.App.Services;
 using Kaku.Core;
 using Kaku.Core.Search;
 
@@ -60,7 +61,7 @@ public partial class FindPassageDialog : Window
             var c = _book.Chapters[m.Start.Chapter];
             var header = T.F("Passage_Header", m.Start.Chapter + 1, c.Title, m.Start.Block + 1,
                 T.N0(m.WordIndex + 1), T.N1(_book.PercentAt(m.WordIndex)));
-            var brush = m.Score >= 0.8 ? Brushes.ForestGreen : m.Score >= 0.55 ? Brushes.DarkGoldenrod : Brushes.Gray;
+            var brush = m.Score >= 0.8 ? Theme.Brush("ScoreGood") : m.Score >= 0.55 ? Theme.Brush("Caution") : Theme.Brush("Faint");
             return new Row(m, header, $"{Math.Round(m.Score * 100)} %", brush);
         }).ToList();
         if (Results.Items.Count > 0) Results.SelectedIndex = 0;

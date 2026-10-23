@@ -47,9 +47,9 @@ public sealed class SymbolsPanel : ScrollViewer
     {
         VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
         HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled;
-        Background = Brushes.White;
+        SetResourceReference(BackgroundProperty, "PanelBg");
         Content = _root;
-        _root.Children.Add(new TextBlock { Text = T.Get("Symbols_Help"), Foreground = Brushes.Gray, FontSize = 11, Margin = new Thickness(0, 0, 0, 4) });
+        _root.Children.Add(Themed(new TextBlock { Text = T.Get("Symbols_Help"), FontSize = 11, Margin = new Thickness(0, 0, 0, 4) }, TextBlock.ForegroundProperty, "Faint"));
         _root.Children.Add(_usedTitle);
         _root.Children.Add(_used);
         _root.Children.Add(_recentTitle);
@@ -73,10 +73,16 @@ public sealed class SymbolsPanel : ScrollViewer
     /// <summary>Copied to the clipboard (for the status bar).</summary>
     public event Action<string>? Copied;
 
-    private static TextBlock Title(string text) => new()
+    private static TextBlock Title(string text) => Themed(new TextBlock
     {
-        Text = text, FontWeight = FontWeights.SemiBold, Foreground = new SolidColorBrush(Color.FromRgb(0x37, 0x41, 0x51)), Margin = new Thickness(0, 8, 0, 3),
-    };
+        Text = text, FontWeight = FontWeights.SemiBold, Margin = new Thickness(0, 8, 0, 3),
+    }, TextBlock.ForegroundProperty, "TextSoft");
+
+    private static TElement Themed<TElement>(TElement element, DependencyProperty property, string key) where TElement : FrameworkElement
+    {
+        element.SetResourceReference(property, key);
+        return element;
+    }
 
     public void SetBook(Book? book)
     {
@@ -105,16 +111,16 @@ public sealed class SymbolsPanel : ScrollViewer
     private Button MakeButton(string symbol, int? count)
     {
         var face = new StackPanel { HorizontalAlignment = HorizontalAlignment.Center };
-        face.Children.Add(new TextBlock
+        face.Children.Add(Themed(new TextBlock
         {
             Text = IsSpace(symbol) ? "⍽" : symbol,
             FontSize = 18,
             FontFamily = new FontFamily("Georgia, Yu Mincho, Segoe UI Symbol"),
             HorizontalAlignment = HorizontalAlignment.Center,
-            Foreground = IsSpace(symbol) ? Brushes.SteelBlue : Brushes.Black,
-        });
+        }, TextBlock.ForegroundProperty, IsSpace(symbol) ? "Info" : "Text"));
         if (count != null)
-            face.Children.Add(new TextBlock { Text = count.Value.ToString("N0", T.Es), FontSize = 9.5, Foreground = Brushes.Gray, HorizontalAlignment = HorizontalAlignment.Center });
+            face.Children.Add(Themed(new TextBlock { Text = count.Value.ToString("N0", T.Es), FontSize = 9.5, HorizontalAlignment = HorizontalAlignment.Center },
+                TextBlock.ForegroundProperty, "Faint"));
         var b = new Button
         {
             Content = face,
@@ -122,12 +128,12 @@ public sealed class SymbolsPanel : ScrollViewer
             Height = count != null ? 46 : 36,
             Margin = new Thickness(0, 0, 4, 4),
             Padding = new Thickness(4, 0, 4, 0),
-            Background = new SolidColorBrush(Color.FromRgb(0xF9, 0xFA, 0xFB)),
-            BorderBrush = new SolidColorBrush(Color.FromRgb(0xE5, 0xE7, 0xEB)),
             Focusable = false,
             ToolTip = Describe(symbol) + (count != null ? $"\n{T.F("Symbols_Count", count.Value.ToString("N0", T.Es))}" : "") + "\n" + T.Get("Symbols_Tip"),
             Cursor = Cursors.Hand,
         };
+        b.SetResourceReference(BackgroundProperty, "CardBg");
+        b.SetResourceReference(BorderBrushProperty, "BorderSoft");
         b.Click += (_, _) => InsertRequested?.Invoke(symbol);
         b.MouseRightButtonUp += (_, e) =>
         {
